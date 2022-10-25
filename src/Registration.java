@@ -18,4 +18,5 @@ public class Registration {
     Einen Vehicle kann mehrere Fahrer haben, ein Soldat kann mehrere Vehicles fahren
     In der Registration wird sich eine Person als Soldat registrieren,
     wird random zu einer Battalion zugeordnet und bekommt Waffe und Rustung.
+
 * */

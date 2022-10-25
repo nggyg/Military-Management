@@ -2,7 +2,7 @@ package basic;
 
 import java.util.ArrayList;
 
-public class Soldier extends Person{
+public class Soldier extends Person {
     private Rang rang;
 
     private ArrayList<Vehicle> vehicleList;
@@ -17,9 +17,8 @@ public class Soldier extends Person{
 
     public Soldier(String name, int id, Rang rang) {
         super(name, id);
-        this.rang=rang;
+        this.rang = rang;
     }
-
 
 
     public Rang rang() {
