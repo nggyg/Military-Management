@@ -1,7 +1,49 @@
 import basic.*;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Registration {
+    ArrayList<Soldier> generalSoldierList = new ArrayList<Soldier>();
     public Registration() {
+        populateSoldiers();
+    }
+
+    void addSoldier(Soldier newSoldier){
+        newSoldier.setRang(Rang.Private);
+        generalSoldierList.add(newSoldier);
+    }
+    void populateSoldiers(){
+        generalSoldierList.add(new Soldier("Alex",1,Rang.Private));
+        generalSoldierList.add(new Soldier("Bob",2,Rang.Officer));
+        generalSoldierList.add(new Soldier("Martin",3,Rang.Private));
+        generalSoldierList.add(new Soldier("Greg",4,Rang.General));
+    }
+
+    void deleteSoldier(int id){
+        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.id(),id));
+    }
+    void displaySoldiers(){
+        for (Soldier soldier:generalSoldierList){
+            System.out.println("Name: "+soldier.name()+
+            "\tId: "+soldier.id()+"\tRang: "+soldier.rang());
+        }
+    }
+
+    void updateSoldier(int id, String newName, Rang newRang){
+        for (Soldier soldier:generalSoldierList){
+            if(id== soldier.id()){
+                soldier.setName(newName);
+                soldier.setRang(newRang);
+            }
+        }
+
+    }
+    /*1 weapon assigned to soldier
+    * 1 armor assigned to soldier
+    * */
+    void assignToSoldier(){
+
     }
 }
 

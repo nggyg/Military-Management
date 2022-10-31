@@ -5,14 +5,51 @@ import java.io.IOException;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        try {
-            File in = new File("data.txt");
-            Scanner scan = new Scanner(in);
-            System.out.println(scan.next());
-            scan.close();
-        }catch (FileNotFoundException e){
-            System.out.println("File error");
-            e.printStackTrace();
+//        try {
+//            File in = new File("data.txt");
+//            Scanner scan = new Scanner(in);
+//            System.out.println(scan.next());
+//            scan.close();
+//        }catch (FileNotFoundException e){
+//            System.out.println("File error");
+//            e.printStackTrace();
+//        }
+//        mainMenu();
+        Registration r = new Registration();
+        r.displaySoldiers();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Delete id:");
+        int id = in.nextInt();
+        r.deleteSoldier(id);
+        r.displaySoldiers();
+    }
+    public static void mainMenu(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("1.Register Soldier\n");
+        System.out.print("Name:\nId:");
+        String name = input.next();
+        int id = input.nextInt();
+        Soldier newSoldier= new Soldier(name,id,Rang.Private);
+        Registration r = new Registration();
+        System.out.println("Update existing Soldier");
+        System.out.println("Id of Soldier: ");
+        id = input.nextInt();
+        System.out.println("Name for Soldier: ");
+        name = input.next();
+        System.out.println("Rang for Soldier: ");
+        System.out.println("Available rangs are: \n1."+Rang.Officer+"\n2."+Rang.General+"\n3."+Rang.Private);
+        Rang rang;
+        if(input.nextInt()==1){
+            rang = Rang.Officer;
+        } else if (input.nextInt()==2) {
+            rang = Rang.General;
+
         }
+        else {rang = Rang.Private;}
+        input.close();
+//        r.updateSoldier(id,name,rang);
+//        r.addSoldier(newSoldier);
+        r.displaySoldiers();
+
     }
 }
