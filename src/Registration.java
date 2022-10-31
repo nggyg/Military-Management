@@ -25,8 +25,8 @@ public class Registration {
     }
     void displaySoldiers(){
         for (Soldier soldier:generalSoldierList){
-            System.out.println("Name: "+soldier.name()+
-            "\tId: "+soldier.id()+"\tRang: "+soldier.rang());
+            System.out.println("Name: "+soldier.getName()+
+            "\tId: "+soldier.id()+"\tRang: "+soldier.getRang());
         }
     }
 

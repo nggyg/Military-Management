@@ -44,4 +44,9 @@ public class Weapon extends Item {
     private String name;
     private float calibre;
     private int serialNumber;
+
+    @Override
+    public String toString(){
+        return this.getName();
+    }
 }

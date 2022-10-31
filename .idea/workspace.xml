@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="expanded upon batalion">
-      <change afterPath="$PROJECT_DIR$/src/Repository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_25_2022_10_48_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_25_2022_10_48_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Armor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Battalion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Battalion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Soldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Soldier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666617465233</updated>
       <workItem from="1666617466391" duration="733000" />
+      <workItem from="1667248454384" duration="3303000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1666618728948</created>

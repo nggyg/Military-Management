@@ -27,4 +27,12 @@ public class Battalion {
       this.leader = leader;
       this.leader.setRang(Rang.Officer);
    }
+
+   @Override
+   public String toString(){
+      String list= new String();
+      for(Soldier s:this.soldiers)
+         list=list.concat(s.getName().concat("\n"));
+      return list;
+   }
 }

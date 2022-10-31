@@ -21,11 +21,15 @@ public class Soldier extends Person{
         this.rang=rang;
     }
 
-    public Rang rang() {
+    public Rang getRang() {
         return rang;
     }
 
     public void setRang(Rang rang) {
         this.rang = rang;
+    }
+    @Override
+    public String toString(){
+        return this.getName();
     }
 }

@@ -35,4 +35,10 @@ public class Armor extends Item{
     private String armorType;
     private int armorID;
 
+    @Override
+    public String toString(){
+        return this.getArmorType();
+    }
+
+
 }

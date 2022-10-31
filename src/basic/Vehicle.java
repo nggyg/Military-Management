@@ -43,6 +43,10 @@ public class Vehicle extends Item {
     }
 
     @Override
+    public String toString(){
+        return this.getName();
+    }
+    @Override
     public boolean usable() {
         return false;
     }
