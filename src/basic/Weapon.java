@@ -27,23 +27,24 @@ public class Weapon extends Item {
         this.calibre = calibre;
     }
 
-    public int getSerialNumber() {
-        return serialNumber;
+    @Override
+    public int getID() {
+        return weaponID;
     }
 
-    public void setSerialNumber(int serialNumber) {
-        this.serialNumber = serialNumber;
+    public void setWeaponID(int weaponID) {
+        this.weaponID = weaponID;
     }
 
-    public Weapon(String name, float calibre, int serialNumber) {
+    public Weapon(String name, float calibre, int weaponID) {
         this.name = name;
         this.calibre = calibre;
-        this.serialNumber = serialNumber;
+        this.weaponID = weaponID;
     }
 
     private String name;
     private float calibre;
-    private int serialNumber;
+    private int weaponID;
 
     @Override
     public String toString(){

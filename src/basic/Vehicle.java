@@ -15,7 +15,8 @@ public class Vehicle extends Item {
         this.name = name;
     }
 
-    public int getVehicleID() {
+    @Override
+    public int getID() {
         return vehicleID;
     }
 

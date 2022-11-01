@@ -4,12 +4,10 @@ import Repository.Repository;
 import basic.Rang;
 import basic.Soldier;
 
-import java.util.Objects;
-
-public class Controller {
+public class SoldierController {
     private Repository<Soldier> generalSoldierList;
 
-    public Controller() {
+    public SoldierController() {
 
     }
 
@@ -19,7 +17,7 @@ public class Controller {
     }
     boolean deleteSoldier(int id){
 //        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.id(),id));
-        for(Soldier soldier:generalSoldierList.content()){
+        for(Soldier soldier:generalSoldierList.getContent()){
             if(id == soldier.id()){
                 generalSoldierList.remove(soldier);
                 return true;
@@ -28,7 +26,7 @@ public class Controller {
         return false;
     }
     boolean updateSoldier(int id, String newName, Rang newRang){
-        for (Soldier soldier:generalSoldierList.content()){
+        for (Soldier soldier:generalSoldierList.getContent()){
             if(id== soldier.id()){
                 soldier.setName(newName);
                 soldier.setRang(newRang);
@@ -39,9 +37,7 @@ public class Controller {
     }
 
     void displaySoldiers(){
-        for (Soldier soldier:generalSoldierList.content()){
-            System.out.println(soldier);
-        }
+        this.generalSoldierList.display();
     }
 
 }

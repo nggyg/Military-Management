@@ -1,7 +1,5 @@
 package Repository;
 
-import basic.Soldier;
-
 import java.util.ArrayList;
 
 public class Repository<E> {
@@ -11,7 +9,7 @@ public class Repository<E> {
         this.content = content;
     }
 
-    public ArrayList<E> content() {
+    public ArrayList<E> getContent() {
         return content;
     }
 
@@ -21,7 +19,6 @@ public class Repository<E> {
 
     public void add(E item){
         this.content.add(item);
-
     }
     public void remove(E item){
         this.content.remove(item);
