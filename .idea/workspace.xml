@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Tests">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Tests 2">
       <change beforePath="$PROJECT_DIR$/src/Controller/SoldierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SoldierController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tests/SoldierControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/SoldierControllerTest.java" afterDir="false" />
     </list>
@@ -117,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667293674132</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Tests 2">
+      <created>1667294294294</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667294294294</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +148,7 @@
     <MESSAGE value="CRUD in Registration&#10;Metoda Menu comentata in Main.java&#10;Metode testate in Main.java" />
     <MESSAGE value="Soldier Controller created" />
     <MESSAGE value="Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests" />
+    <MESSAGE value="Tests 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests 2" />
   </component>
 </project>

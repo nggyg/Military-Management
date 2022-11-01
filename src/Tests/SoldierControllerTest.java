@@ -15,6 +15,7 @@ class SoldierControllerTest {
         Soldier soldier = new Soldier("Bob",5, Rang.Private);
         SoldierController controller = new SoldierController();
         controller.addSoldier(soldier);
+        assert(controller.findById(5)==soldier);
     }
 
     @org.junit.jupiter.api.Test
@@ -23,6 +24,8 @@ class SoldierControllerTest {
         SoldierController controller = new SoldierController();
         controller.addSoldier(soldier);
         assert(controller.deleteSoldier(5));
+        assert(!controller.deleteSoldier(5));
+        assert(controller.findById(5)==null);
     }
 
     @org.junit.jupiter.api.Test
@@ -31,6 +34,9 @@ class SoldierControllerTest {
         SoldierController controller = new SoldierController();
         controller.addSoldier(soldier);
         assert(controller.updateSoldier(5,"Marian",Rang.Officer));
+        assert(controller.findById(5).getRang()==Rang.Officer);
+        assert(controller.findById(5).getName().equals("Marian"));
+
     }
 
     @org.junit.jupiter.api.Test

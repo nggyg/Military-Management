@@ -14,6 +14,15 @@ public class SoldierController {
 
     }
 
+    public Soldier findById(int id){
+        for(Soldier soldier:generalSoldierList.getContent()){
+            if(soldier.id()==id){
+                return soldier;
+            }
+        }
+        return null;
+    }
+
     public void addSoldier(Soldier newSoldier){
         newSoldier.setRang(Rang.Private);
         generalSoldierList.add(newSoldier);
