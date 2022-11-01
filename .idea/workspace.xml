@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Tests 2">
+    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Tests 3">
+      <change afterPath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SoldierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SoldierController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/SoldierControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/SoldierControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +125,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667294294294</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Tests 3">
+      <created>1667294598822</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667294598822</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Tests 3">
+      <created>1667294737606</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667294737606</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +165,7 @@
     <MESSAGE value="Soldier Controller created" />
     <MESSAGE value="Tests" />
     <MESSAGE value="Tests 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests 2" />
+    <MESSAGE value="Tests 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests 3" />
   </component>
 </project>

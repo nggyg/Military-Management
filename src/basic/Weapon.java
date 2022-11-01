@@ -19,11 +19,11 @@ public class Weapon extends Item {
         this.name = name;
     }
 
-    public float getCalibre() {
+    public double getCalibre() {
         return calibre;
     }
 
-    public void setCalibre(float calibre) {
+    public void setCalibre(double calibre) {
         this.calibre = calibre;
     }
 
@@ -43,7 +43,7 @@ public class Weapon extends Item {
     }
 
     private String name;
-    private float calibre;
+    private double calibre;
     private int weaponID;
 
     @Override

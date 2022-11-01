@@ -14,32 +14,34 @@ public class SoldierController {
 
     }
 
-    public Soldier findById(int id){
-        for(Soldier soldier:generalSoldierList.getContent()){
-            if(soldier.id()==id){
+    public Soldier findById(int id) {
+        for (Soldier soldier : generalSoldierList.getContent()) {
+            if (soldier.id() == id) {
                 return soldier;
             }
         }
         return null;
     }
 
-    public void addSoldier(Soldier newSoldier){
+    public void addSoldier(Soldier newSoldier) {
         newSoldier.setRang(Rang.Private);
         generalSoldierList.add(newSoldier);
     }
-    public boolean deleteSoldier(int id){
+
+    public boolean deleteSoldier(int id) {
 //        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.id(),id));
-        for(Soldier soldier:generalSoldierList.getContent()){
-            if(id == soldier.id()){
+        for (Soldier soldier : generalSoldierList.getContent()) {
+            if (id == soldier.id()) {
                 generalSoldierList.remove(soldier);
                 return true;
             }
         }
         return false;
     }
-    public boolean updateSoldier(int id, String newName, Rang newRang){
-        for (Soldier soldier:generalSoldierList.getContent()){
-            if(id== soldier.id()){
+
+    public boolean updateSoldier(int id, String newName, Rang newRang) {
+        for (Soldier soldier : generalSoldierList.getContent()) {
+            if (id == soldier.id()) {
                 soldier.setName(newName);
                 soldier.setRang(newRang);
                 return true;
@@ -48,7 +50,7 @@ public class SoldierController {
         return false;
     }
 
-    public void displaySoldiers(){
+    public void displaySoldiers() {
         this.generalSoldierList.display();
     }
 
