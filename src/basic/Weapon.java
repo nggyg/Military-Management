@@ -19,31 +19,32 @@ public class Weapon extends Item {
         this.name = name;
     }
 
-    public float getCalibre() {
+    public double getCalibre() {
         return calibre;
     }
 
-    public void setCalibre(float calibre) {
+    public void setCalibre(double calibre) {
         this.calibre = calibre;
     }
 
-    public int getSerialNumber() {
-        return serialNumber;
+    @Override
+    public int getID() {
+        return weaponID;
     }
 
-    public void setSerialNumber(int serialNumber) {
-        this.serialNumber = serialNumber;
+    public void setWeaponID(int weaponID) {
+        this.weaponID = weaponID;
     }
 
-    public Weapon(String name, float calibre, int serialNumber) {
+    public Weapon(String name, float calibre, int weaponID) {
         this.name = name;
         this.calibre = calibre;
-        this.serialNumber = serialNumber;
+        this.weaponID = weaponID;
     }
 
     private String name;
-    private float calibre;
-    private int serialNumber;
+    private double calibre;
+    private int weaponID;
 
     @Override
     public String toString(){

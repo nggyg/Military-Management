@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="methods for repository, repository is generic" />
+    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Tests 3">
+      <change afterPath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SoldierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SoldierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Weapon.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +20,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -35,16 +41,31 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Tests" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -54,7 +75,6 @@
       <option name="presentableId" value="Default" />
       <updated>1666617465233</updated>
       <workItem from="1666617466391" duration="733000" />
-      <workItem from="1667248454384" duration="3496000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1666618728948</created>
@@ -77,14 +97,49 @@
       <option name="project" value="LOCAL" />
       <updated>1666684293002</updated>
     </task>
-    <task id="LOCAL-00004" summary="methods for repository, repository is generic">
-      <created>1667252397822</created>
+    <task id="LOCAL-00004" summary="CRUD in Registration&#10;Metoda Menu comentata in Main.java&#10;Metode testate in Main.java">
+      <created>1667245560126</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1667252397823</updated>
+      <updated>1667245560126</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Soldier Controller created">
+      <created>1667292404550</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667292404550</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Tests">
+      <created>1667293674132</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667293674132</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Tests 2">
+      <created>1667294294294</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667294294294</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Tests 3">
+      <created>1667294598822</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667294598822</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Tests 3">
+      <created>1667294737606</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667294737606</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,7 +161,11 @@
     <MESSAGE value="Test" />
     <MESSAGE value="First commit" />
     <MESSAGE value="expanded upon batalion" />
-    <MESSAGE value="methods for repository, repository is generic" />
-    <option name="LAST_COMMIT_MESSAGE" value="methods for repository, repository is generic" />
+    <MESSAGE value="CRUD in Registration&#10;Metoda Menu comentata in Main.java&#10;Metode testate in Main.java" />
+    <MESSAGE value="Soldier Controller created" />
+    <MESSAGE value="Tests" />
+    <MESSAGE value="Tests 2" />
+    <MESSAGE value="Tests 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests 3" />
   </component>
 </project>

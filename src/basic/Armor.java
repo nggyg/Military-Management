@@ -19,7 +19,8 @@ public class Armor extends Item{
         this.armorType = armorType;
     }
 
-    public int getArmorID() {
+    @Override
+    public int getID() {
         return armorID;
     }
 
