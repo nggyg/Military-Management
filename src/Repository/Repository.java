@@ -1,5 +1,7 @@
 package Repository;
 
+import basic.Soldier;
+
 import java.util.ArrayList;
 
 public class Repository<E> {

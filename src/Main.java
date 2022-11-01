@@ -15,8 +15,15 @@ public class Main {
 //            e.printStackTrace();
 //        }
 //        mainMenu();
+
         Registration r = new Registration();
         r.displaySoldiers();
+
+        r.generalSoldierList.add(new Soldier("Alex",1,Rang.Private));
+        r.generalSoldierList.add(new Soldier("Bob",2,Rang.Officer));
+        r.generalSoldierList.add(new Soldier("Martin",3,Rang.Private));
+        r.generalSoldierList.add(new Soldier("Greg",4,Rang.General));
+
         Scanner in = new Scanner(System.in);
         System.out.println("Delete id:");
         int id = in.nextInt();
