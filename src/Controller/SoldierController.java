@@ -4,18 +4,21 @@ import Repository.Repository;
 import basic.Rang;
 import basic.Soldier;
 
+import java.util.ArrayList;
+
 public class SoldierController {
     private Repository<Soldier> generalSoldierList;
 
     public SoldierController() {
+        this.generalSoldierList = new Repository<Soldier>(new ArrayList<Soldier>());
 
     }
 
-    void addSoldier(Soldier newSoldier){
+    public void addSoldier(Soldier newSoldier){
         newSoldier.setRang(Rang.Private);
         generalSoldierList.add(newSoldier);
     }
-    boolean deleteSoldier(int id){
+    public boolean deleteSoldier(int id){
 //        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.id(),id));
         for(Soldier soldier:generalSoldierList.getContent()){
             if(id == soldier.id()){
@@ -25,7 +28,7 @@ public class SoldierController {
         }
         return false;
     }
-    boolean updateSoldier(int id, String newName, Rang newRang){
+    public boolean updateSoldier(int id, String newName, Rang newRang){
         for (Soldier soldier:generalSoldierList.getContent()){
             if(id== soldier.id()){
                 soldier.setName(newName);
@@ -36,7 +39,7 @@ public class SoldierController {
         return false;
     }
 
-    void displaySoldiers(){
+    public void displaySoldiers(){
         this.generalSoldierList.display();
     }
 
