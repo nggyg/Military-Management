@@ -44,6 +44,5 @@ class SoldierControllerTest {
         Soldier soldier = new Soldier("Bob",5, Rang.Private);
         SoldierController controller = new SoldierController();
         controller.addSoldier(soldier);
-//        assert(controller.displaySoldiers()=="Bob");
     }
 }
