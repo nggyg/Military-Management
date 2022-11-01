@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Tests 3">
-      <change afterPath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" afterDir="false" />
+    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Tests item">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SoldierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SoldierController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/basic/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/SoldierControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/SoldierControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Armor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667294737606</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Tests item">
+      <created>1667296269268</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1667296269268</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +174,7 @@
     <MESSAGE value="Tests" />
     <MESSAGE value="Tests 2" />
     <MESSAGE value="Tests 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests 3" />
+    <MESSAGE value="Tests item" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests item" />
   </component>
 </project>
