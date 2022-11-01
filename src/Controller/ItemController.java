@@ -42,24 +42,31 @@ public class ItemController {
         return false;
     }
 
-    public void updateWeapon(String newName, double newCalibre, int id){
-        for(Weapon weapon:)
-    }
-
-//    public boolean update(int id) {
-//        for (Item item : this.content.getContent()) {
-//            if (item.getID() == id) {
-//                if(item.getClass() == Armor.class){
-//                    ((Armor) item).setArmorType(newArmorType);
-//                } else if (item.getClass()== Weapon.class) {
-//                    item.se
-//
-//                }
-//                return true;
-//            }
-//        }
-//        return false;
+//    public void updateWeapon(String newName, double newCalibre, int id){
+//        for(Weapon weapon:)
 //    }
+
+    public boolean update(int id) {
+        for (Item item : this.content.getContent()) {
+            if (item.getID() == id) {
+                Weapon weapon=new Weapon();
+                Armor armor=new Armor();
+                Vehicle vehicle=new Vehicle();
+                if (Weapon.class.equals(item.getClass())) {
+                    //ask for updated values
+
+                }
+                else if (Armor.class.equals(item.getClass())) {
+                    //ask for updated values
+                }
+                else if (Vehicle.class.equals(item.getClass())) {
+                    //ask for updated values
+                }
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void display() {
         this.content.display();

@@ -46,6 +46,10 @@ public class Armor extends Item{
     private int armorID;
     private String armorLightness;
 
+    public Armor() {
+        this.armorType="TBD";
+    }
+
     @Override
     public String toString(){
         return this.getArmorType();

@@ -46,6 +46,10 @@ public class Weapon extends Item {
     private double calibre;
     private int weaponID;
 
+    public Weapon() {
+        this.name="TBD";
+    }
+
     @Override
     public String toString(){
         return this.getName();
