@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Update works">
+    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="item controller methods refined to acomodate multiple repositories">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,14 +140,7 @@
       <option name="project" value="LOCAL" />
       <updated>1667294737606</updated>
     </task>
-    <task id="LOCAL-00010" summary="Update works">
-      <created>1667898879614</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1667898879614</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,7 +195,6 @@
     <MESSAGE value="Tests 2" />
     <MESSAGE value="Tests 3" />
     <MESSAGE value="item controller methods refined to acomodate multiple repositories" />
-    <MESSAGE value="Update works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update works" />
+    <option name="LAST_COMMIT_MESSAGE" value="item controller methods refined to acomodate multiple repositories" />
   </component>
 </project>

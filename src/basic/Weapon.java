@@ -47,11 +47,11 @@ public class Weapon extends Item {
     private int weaponID;
 
     public Weapon() {
-        this.name="TBD";
+        this.name = "TBD";
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.getName();
     }
 }
