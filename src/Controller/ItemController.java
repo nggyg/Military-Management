@@ -65,13 +65,13 @@ public class ItemController {
         for(Item item:this.content.getContent()) {
             if (item.getID() == id) {
                 if(item.getClass()==Armor.class){
-
+                    //what?
                 }
                 else if(item.getClass()== Weapon.class){
-
+                    //the
                 }
                 else if(item.getClass()== Vehicle.class){
-
+                    //f*ck?
                 }
                 return true;
             }
