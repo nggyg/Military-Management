@@ -10,7 +10,7 @@ public class ItemController {
     private Repository<Armor> armors;
     private Repository<Vehicle> vehicles;
 
-    public ItemController(Repository<Item> content) {
+    public ItemController() {
         this.weapons = new Repository<Weapon>(new ArrayList<Weapon>());
         this.armors = new Repository<Armor>(new ArrayList<Armor>());
         this.vehicles = new Repository<Vehicle>(new ArrayList<Vehicle>());
