@@ -38,11 +38,4 @@ class SoldierControllerTest {
         assert(controller.findById(5).getName().equals("Marian"));
 
     }
-
-    @org.junit.jupiter.api.Test
-    void displaySoldiers() {
-        Soldier soldier = new Soldier("Bob",5, Rang.Private);
-        SoldierController controller = new SoldierController();
-        controller.addSoldier(soldier);
-    }
 }

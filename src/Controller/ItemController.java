@@ -18,7 +18,17 @@ public class ItemController {
 
     private Repository<Item> content;
     public Item findById(int id) {
-        for (Item item : content.getContent()) {
+        for (Item item : weapons.getContent()) {
+            if (item.getID() == id) {
+                return item;
+            }
+        }
+        for (Item item : armors.getContent()) {
+            if (item.getID() == id) {
+                return item;
+            }
+        }
+        for (Item item : vehicles.getContent()) {
             if (item.getID() == id) {
                 return item;
             }
@@ -26,21 +36,43 @@ public class ItemController {
         return null;
     }
     public void add(Item newItem){
-        this.content.add(newItem);
+        if(newItem.getClass()== Weapon.class)
+            this.weapons.add((Weapon) newItem);
+        else if(newItem.getClass()== Armor.class)
+            this.armors.add((Armor) newItem);
+        else if(newItem.getClass()== Vehicle.class)
+            this.vehicles.add((Vehicle) newItem);
     }
     public boolean removeItem(int id){
-        for(Item item:this.content.getContent()) {
-            if (item.getID() == id) {
-                this.content.remove(item);
-                return true;
-            }
+        Object foundItem=this.findById(id);
+        if(foundItem==null)
+            return false;
+        if(foundItem.getClass()==Armor.class){
+            this.armors.remove((Armor) foundItem);
+            return true;
+        }
+        else if(foundItem.getClass()== Weapon.class){
+            this.weapons.remove((Weapon) foundItem);
+            return true;
+        }
+        else if(foundItem.getClass()== Vehicle.class){
+            this.vehicles.remove((Vehicle) foundItem);
+            return true;
         }
         return false;
     }
     public boolean update(int id){
         for(Item item:this.content.getContent()) {
             if (item.getID() == id) {
-                //update item
+                if(item.getClass()==Armor.class){
+
+                }
+                else if(item.getClass()== Weapon.class){
+
+                }
+                else if(item.getClass()== Vehicle.class){
+
+                }
                 return true;
             }
         }

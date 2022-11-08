@@ -4,18 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
-//        try {
-//            File in = new File("data.txt");
-//            Scanner scan = new Scanner(in);
-//            System.out.println(scan.next());
-//            scan.close();
-//        }catch (FileNotFoundException e){
-//            System.out.println("File error");
-//            e.printStackTrace();
-//        }
-//        mainMenu();
-
+    public static void main(String[] args) throws FileNotFoundException {/*
         Registration r = new Registration();
         r.displaySoldiers();
 
@@ -28,7 +17,18 @@ public class Main {
         System.out.println("Delete id:");
         int id = in.nextInt();
         r.deleteSoldier(id);
-        r.displaySoldiers();
+        r.displaySoldiers();*/
+        load_basic_data("data.txt");
+    }
+
+    public static void load_basic_data(String filepath) throws FileNotFoundException {
+        File memory = new File(filepath);
+        if(memory.canRead()) {
+            System.out.println(memory);
+            Scanner memoscan=new Scanner(memory);
+            System.out.println(memoscan.nextLine());
+        }
+
     }
     public static void mainMenu(){
         Scanner input = new Scanner(System.in);

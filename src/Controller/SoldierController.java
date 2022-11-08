@@ -10,8 +10,7 @@ public class SoldierController {
     private Repository<Soldier> generalSoldierList;
 
     public SoldierController() {
-        this.generalSoldierList = new Repository<Soldier>(new ArrayList<Soldier>());
-
+        this.generalSoldierList=new Repository<Soldier>(new ArrayList<Soldier>());
     }
 
     public Soldier findById(int id) {
