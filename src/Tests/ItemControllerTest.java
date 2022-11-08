@@ -17,7 +17,7 @@ class ItemControllerTest {
 
     @Test
     void add() {
-        ItemController itemController = new ItemController(new Repository<Item>(new ArrayList<Item>()));
+        ItemController itemController = new ItemController(new Repository<Item>());
         Weapon weapon = new Weapon("AK-74", (float) 7.62,1);
         Armor armor = new Armor("Heavy","Heavy",2);
         Vehicle vehicle = new Vehicle("Humvee",3,new ArrayList<Soldier>());
@@ -64,9 +64,11 @@ class ItemControllerTest {
         itemController.add(weapon);
         itemController.add(armor);
         itemController.add(vehicle);
+        itemController.updateWeapon("M4A4",5.56,1);
 
+
+        assert(itemController.updateWeapon("M4A4",5.56,1));
     }
-
     @Test
     void display() {
     }

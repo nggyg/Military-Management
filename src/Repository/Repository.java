@@ -7,6 +7,10 @@ public class Repository<E> {
 
     public Repository(ArrayList<E> content) {
         this.content = content;
+
+    }
+    public Repository(){
+        this.content = new ArrayList<E>();
     }
 
     public ArrayList<E> getContent() {
