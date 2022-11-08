@@ -28,13 +28,27 @@ public class Armor extends Item{
         this.armorID = armorID;
     }
 
-    public Armor(String armorType, int armorID) {
+    public String getArmorLightness() {
+        return armorLightness;
+    }
+
+    public void setArmorLightness(String armorLightness) {
+        this.armorLightness = armorLightness;
+    }
+
+    public Armor(String armorType, String armorLightness, int armorID) {
         this.armorType = armorType;
         this.armorID = armorID;
+        this.armorLightness = armorLightness;
     }
 
     private String armorType;
     private int armorID;
+    private String armorLightness;
+
+    public Armor() {
+        this.armorType="TBD";
+    }
 
     @Override
     public String toString(){
