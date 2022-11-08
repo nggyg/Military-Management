@@ -10,7 +10,7 @@ public class ItemController {
     private Repository<Armor> armors;
     private Repository<Vehicle> vehicles;
 
-    public ItemController(Repository<Item> content) {
+    public ItemController() {
         this.weapons = new Repository<Weapon>(new ArrayList<Weapon>());
         this.armors = new Repository<Armor>(new ArrayList<Armor>());
         this.vehicles = new Repository<Vehicle>(new ArrayList<Vehicle>());
@@ -94,27 +94,8 @@ public class ItemController {
         }
         return false;
     }
+
+    public void display(){
+        this.weapons.display();
+    }
 }
-//    public boolean update(int id){
-//        for(Item item:this.content.getContent()) {
-//            if (item.getID() == id) {
-//                if(item.getClass()==Armor.class){
-//                    //what?
-//                }
-//                else if(item.getClass()== Weapon.class){
-//                    //the
-//                }
-//                else if(item.getClass()== Vehicle.class){
-//                    //f*ck?
-//                }
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//    public void display(){
-//        this.weapons.display();
-//        this.armors.display();
-//        this.vehicles.display();
-//    }
-//}

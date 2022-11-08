@@ -1,7 +1,10 @@
+import Controller.ItemController;
+import Repository.Repository;
 import basic.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {/*
@@ -18,6 +21,27 @@ public class Main {
         int id = in.nextInt();
         r.deleteSoldier(id);
         r.displaySoldiers();*/
+        ItemController itemController = new ItemController();
+        Weapon weapon = new Weapon("AK-74", (float) 7.62,1);
+        Armor armor = new Armor("Heavy","Heavy",2);
+        Vehicle vehicle = new Vehicle("Humvee",3,new ArrayList<Soldier>());
+
+        itemController.add(weapon);
+        itemController.add(armor);
+        itemController.add(vehicle);
+        System.out.println("1.Update Weapon\n2.Update Armor\n3.Update Vehicle");
+        Scanner in = new Scanner(System.in);
+        int choice = in.nextInt();
+        if(choice == 1){
+            System.out.println("Enter id: ");
+            int id = in.nextInt();
+            System.out.println("New name: ");
+            String name = in.next();
+            System.out.println("New calibre: ");
+            double calibre = in.nextDouble();
+            itemController.updateWeapon(name,calibre,id);
+            itemController.display();
+        }
         load_basic_data("data.txt");
     }
 
