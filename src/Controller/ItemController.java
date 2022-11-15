@@ -79,7 +79,16 @@ public class ItemController {
         }
         return false;
     }
-
+    public Repository<Item> getAll(){
+        Repository<Item> everything=new Repository<Item>();
+        for(Weapon weapon:this.weapons.getContent())
+            everything.add(weapon);
+        for(Armor armor:this.armors.getContent())
+            everything.add(armor);
+        for(Vehicle vehicle:this.vehicles.getContent())
+            everything.add(vehicle);
+        return everything;
+    }
     public boolean updateWeapon(String newName, double newCalibre, int id) {
         for (Weapon weapon : weapons.getContent()) {
             if (id == weapon.getID()) {

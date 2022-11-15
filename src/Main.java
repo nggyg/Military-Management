@@ -16,7 +16,45 @@ public class Main {
         itemRepository.display();
         soldierRepository.display();
     }
-//    public static void main(String[] args) throws FileNotFoundException {/*
+//
+
+    public static Repository<Soldier> populateSoldierRepo() {
+        Repository<Soldier> soldierRepository = new Repository<Soldier>();
+        SoldierController soldierController = new SoldierController(soldierRepository);
+        Soldier newSoldier = new Soldier("Alex", 1, Rang.Private);
+        soldierController.addSoldier(newSoldier);
+        newSoldier = new Soldier("Bob", 2, Rang.Officer);
+        soldierController.addSoldier(newSoldier);
+        newSoldier = new Soldier("Martin", 3, Rang.Private);
+        soldierController.addSoldier(newSoldier);
+        newSoldier = new Soldier("Greg", 4, Rang.General);
+        soldierController.addSoldier(newSoldier);
+        return soldierRepository;
+    }
+
+    public static Repository<Item> populateItemsRepo() {
+       Repository<Item> itemRepository = new Repository<Item>();
+       ItemController itemController = new ItemController(itemRepository);
+
+       Weapon weapon = new Weapon("AK-74", (float) 7.62, 1);
+       Armor armor = new Armor("Heavy", "Heavy", 2);
+       Vehicle vehicle = new Vehicle("Humvee", 3, new ArrayList<Soldier>());
+
+       itemController.add(weapon);
+       itemController.add(armor);
+       itemController.add(vehicle);
+       return itemController.getAll();
+    }
+
+    public static void load_basic_data(String filepath) throws FileNotFoundException {
+        File memory = new File(filepath);
+        if (memory.canRead()) {
+            System.out.println(memory);
+            Scanner memoscan = new Scanner(memory);
+            System.out.println(memoscan.nextLine());
+        }
+    }
+    //public static void main(String[] args) throws FileNotFoundException {/*
 //        Registration r = new Registration();
 //        r.displaySoldiers();
 //
@@ -53,42 +91,4 @@ public class Main {
 //        }
 //        load_basic_data("data.txt");
 //    }
-
-    public static Repository<Soldier> populateSoldierRepo() {
-        Repository<Soldier> soldierRepository = new Repository<Soldier>();
-        SoldierController soldierController = new SoldierController(soldierRepository);
-        Soldier newSoldier = new Soldier("Alex", 1, Rang.Private);
-        soldierController.addSoldier(newSoldier);
-        newSoldier = new Soldier("Bob", 2, Rang.Officer);
-        soldierController.addSoldier(newSoldier);
-        newSoldier = new Soldier("Martin", 3, Rang.Private);
-        soldierController.addSoldier(newSoldier);
-        newSoldier = new Soldier("Greg", 4, Rang.General);
-        soldierController.addSoldier(newSoldier);
-        return soldierRepository;
-    }
-
-    public static Repository<Item> populateItemsRepo() {
-       Repository<Item> itemRepository = new Repository<Item>();
-       ItemController itemController = new ItemController(itemRepository);
-
-       Weapon weapon = new Weapon("AK-74", (float) 7.62, 1);
-       Armor armor = new Armor("Heavy", "Heavy", 2);
-       Vehicle vehicle = new Vehicle("Humvee", 3, new ArrayList<Soldier>());
-
-       itemController.add(weapon);
-       itemController.add(armor);
-       itemController.add(vehicle);
-
-       return itemRepository;
-    }
-
-    public static void load_basic_data(String filepath) throws FileNotFoundException {
-        File memory = new File(filepath);
-        if (memory.canRead()) {
-            System.out.println(memory);
-            Scanner memoscan = new Scanner(memory);
-            System.out.println(memoscan.nextLine());
-        }
-    }
 }
