@@ -13,6 +13,10 @@ public class SoldierController {
         this.generalSoldierList=new Repository<Soldier>(new ArrayList<Soldier>());
     }
 
+    public SoldierController(Repository<Soldier> generalSoldierList){
+        this.generalSoldierList = generalSoldierList;
+    }
+
     public Soldier findById(int id) {
         for (Soldier soldier : generalSoldierList.getContent()) {
             if (soldier.id() == id) {

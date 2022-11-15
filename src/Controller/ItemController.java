@@ -35,7 +35,6 @@ public class ItemController {
         this.armors = armors;
         this.vehicles = vehicles;
     }
-
     public Item findById(int id) {
         for (Item item : weapons.getContent()) {
             if (item.getID() == id) {
