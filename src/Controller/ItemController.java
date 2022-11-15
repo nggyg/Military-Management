@@ -4,6 +4,7 @@ import Repository.*;
 import basic.*;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ItemController {
     private Repository<Weapon> weapons;
@@ -16,6 +17,19 @@ public class ItemController {
         this.vehicles = new Repository<Vehicle>(new ArrayList<Vehicle>());
     }
 
+    public ItemController(Repository<Item> itemRepository){
+        this.weapons = new Repository<Weapon>(new ArrayList<Weapon>());
+        this.armors = new Repository<Armor>(new ArrayList<Armor>());
+        this.vehicles = new Repository<Vehicle>(new ArrayList<Vehicle>());
+        for(Item item: itemRepository.getContent()){
+            if(item.getClass()==Weapon.class)
+                this.weapons.add((Weapon) item);
+            if(item.getClass()== Armor.class)
+                this.armors.add((Armor) item);
+            if(item.getClass()== Vehicle.class)
+                this.vehicles.add((Vehicle) item);
+        }
+    }
     public ItemController(Repository<Weapon> weapons, Repository<Armor> armors, Repository<Vehicle> vehicles) {
         this.weapons = weapons;
         this.armors = armors;
@@ -98,29 +112,53 @@ public class ItemController {
         }
         return false;
     }
-    public void display(){
+
+    public void display() {
         this.weapons.display();
         this.armors.display();
         this.vehicles.display();
     }
+
+    private ArrayList<String> weapon_data_text(){
+        Scanner scan=new Scanner(System.in);
+        ArrayList<String> Paramlist=new ArrayList<>();
+        System.out.print("New weapon name: ");
+        Paramlist.set(1, scan.next());
+        System.out.print("New calibre name: ");
+        Paramlist.set(2, scan.next());
+        scan.close();
+        return Paramlist;
+    }
+    private ArrayList<String> armor_data_text(){
+        Scanner scan=new Scanner(System.in);
+        ArrayList<String> Paramlist=new ArrayList<String>();
+        System.out.print("New Armor type: ");
+        Paramlist.set(1,scan.next());
+        System.out.print("New Armor lightness: ");
+        Paramlist.set(2,scan.next());
+        scan.close();
+        return Paramlist;
+    }
+    public boolean update(int id) {
+        Item found = findById(id);
+        if (found != null) {
+            ArrayList<String> params=new ArrayList<>();
+            if(found.getClass()== Weapon.class) {
+                params=weapon_data_text();
+                return updateWeapon(params.get(1), Double.parseDouble(params.get(2)), found.getID());
+            }
+            if(found.getClass()== Armor.class) {
+                params=armor_data_text();
+                return updateArmor(params.get(1), params.get(2), found.getID());
+            }
+            if(found.getClass()==Vehicle.class) {
+                return updateVehicle(((Vehicle) found).getName(), found.getID());
+            }
+            return false;
+        }
+        return false;
+    }
 }
-//    public boolean update(int id){
-//        for(Item item:this.content.getContent()) {
-//            if (item.getID() == id) {
-//                if(item.getClass()==Armor.class){
-//                    //what?
-//                }
-//                else if(item.getClass()== Weapon.class){
-//                    //the
-//                }
-//                else if(item.getClass()== Vehicle.class){
-//                    //f*ck?
-//                }
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 //    public void display(){
 //        this.weapons.display();
 //        this.armors.display();
