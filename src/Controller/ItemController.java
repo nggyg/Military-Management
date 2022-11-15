@@ -120,23 +120,30 @@ public class ItemController {
 
     private ArrayList<String> weapon_data_text(){
         Scanner scan=new Scanner(System.in);
-        ArrayList<String> Paramlist=new ArrayList<>();
+        ArrayList<String> WeaponParams=new ArrayList<>();
         System.out.print("New weapon name: ");
-        Paramlist.set(1, scan.next());
+        WeaponParams.set(1, scan.next());
         System.out.print("New calibre name: ");
-        Paramlist.set(2, scan.next());
+        WeaponParams.set(2, scan.next());
         scan.close();
-        return Paramlist;
+        return WeaponParams;
     }
     private ArrayList<String> armor_data_text(){
         Scanner scan=new Scanner(System.in);
-        ArrayList<String> Paramlist=new ArrayList<String>();
+        ArrayList<String> ArmorParams=new ArrayList<>();
         System.out.print("New Armor type: ");
-        Paramlist.set(1,scan.next());
+        ArmorParams.set(1,scan.next());
         System.out.print("New Armor lightness: ");
-        Paramlist.set(2,scan.next());
+        ArmorParams.set(2,scan.next());
         scan.close();
-        return Paramlist;
+        return ArmorParams;
+    }
+    private String vehicle_data_text(){
+        Scanner scan=new Scanner(System.in);
+        System.out.print("New vehicle name: ");
+        String param=scan.next();
+        scan.close();
+        return param;
     }
     public boolean update(int id) {
         Item found = findById(id);
@@ -151,7 +158,7 @@ public class ItemController {
                 return updateArmor(params.get(1), params.get(2), found.getID());
             }
             if(found.getClass()==Vehicle.class) {
-                return updateVehicle(((Vehicle) found).getName(), found.getID());
+                return updateVehicle(vehicle_data_text(), found.getID());
             }
             return false;
         }
