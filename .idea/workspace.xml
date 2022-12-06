@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="getAll for ItemController">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +56,11 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "preferences.lookFeel"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -78,6 +83,9 @@
       <workItem from="1668096625842" duration="326000" />
       <workItem from="1668499617929" duration="4313000" />
       <workItem from="1668505421399" duration="2843000" />
+      <workItem from="1669102385762" duration="70000" />
+      <workItem from="1669102588105" duration="19000" />
+      <workItem from="1669102828759" duration="529000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1666618728948</created>
