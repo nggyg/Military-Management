@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Database added" />
+    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Database added">
+      <change afterPath="$PROJECT_DIR$/src/DataTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab/storage_v2/_src_/database/MillitaryManagement.xEUoGQ/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab/storage_v2/_src_/database/MillitaryManagement.xEUoGQ/schema/dbo.sYMBAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Military_Management_V1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Military_Management_V1.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,10 +59,14 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sofar/Desktop/Facultate/Sem3/Fortgeschrittene_Programierung/sqljdbc_11.2/enu/mssql-jdbc-11.2.1.jre18.jar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -88,7 +98,10 @@
       <workItem from="1669102385762" duration="70000" />
       <workItem from="1669102588105" duration="19000" />
       <workItem from="1669102828759" duration="529000" />
-      <workItem from="1670314060568" duration="389000" />
+      <workItem from="1670314060568" duration="2714000" />
+      <workItem from="1671458729204" duration="1235000" />
+      <workItem from="1671530906838" duration="3839000" />
+      <workItem from="1671534970523" duration="643000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1666618728948</created>
@@ -195,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670314279076</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Database added">
+      <created>1670314508553</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670314508553</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,5 +281,15 @@
     <MESSAGE value="getAll for ItemController" />
     <MESSAGE value="Database added" />
     <option name="LAST_COMMIT_MESSAGE" value="Database added" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
