@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Database added">
-      <change afterPath="$PROJECT_DIR$/src/DataTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab/storage_v2/_src_/database/MillitaryManagement.xEUoGQ/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab/storage_v2/_src_/database/MillitaryManagement.xEUoGQ/schema/dbo.sYMBAA.meta" afterDir="false" />
+    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Database works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Military_Management_V1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Military_Management_V1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +98,7 @@
       <workItem from="1670314060568" duration="2714000" />
       <workItem from="1671458729204" duration="1235000" />
       <workItem from="1671530906838" duration="3839000" />
-      <workItem from="1671534970523" duration="643000" />
+      <workItem from="1671534970523" duration="1512000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1666618728948</created>
@@ -215,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670314508553</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Database works">
+      <created>1671535655285</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1671535655285</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +284,8 @@
     <MESSAGE value="UI only one" />
     <MESSAGE value="getAll for ItemController" />
     <MESSAGE value="Database added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database added" />
+    <MESSAGE value="Database works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
