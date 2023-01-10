@@ -40,7 +40,10 @@ public class Vehicle extends Item {
 
     @Override
     public void assignedTo(Soldier soldier) {
-
+        ArrayList<Vehicle> vlist=soldier.getVehicleList();
+        vlist.add(this);
+        soldier.setVehicleList(vlist);
+        this.usable=false;
     }
 
     public Vehicle() {
@@ -50,9 +53,5 @@ public class Vehicle extends Item {
     @Override
     public String toString(){
         return this.getName();
-    }
-    @Override
-    public boolean usable() {
-        return false;
     }
 }

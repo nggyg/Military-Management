@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@DESKTOP-GLDFCK4" uuid="6f986386-8093-4be3-9441-fe3a177237ab">
+    <data-source source="LOCAL" name="JDB1@localhost" uuid="a856d4e1-76cb-42af-9efd-907e58aa3b25">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://DESKTOP-GLDFCK4\NEWMSSQL</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://localhost\SQLEXPRESS:1433;database=JDB1</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

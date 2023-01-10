@@ -4,6 +4,11 @@ public class Person {
     private String name;
     private int id;
 
+    public Person(int id) {
+        name="tbd";
+        this.id=id;
+    }
+
     public String getName() {
         return name;
     }
@@ -12,7 +17,7 @@ public class Person {
         this.name = name;
     }
 
-    public int id() {
+    public int getId() {
         return id;
     }
 

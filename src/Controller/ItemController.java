@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ItemController {
@@ -60,6 +61,21 @@ public class ItemController {
         return null;
     }
 
+    public Map.Entry<Weapon,Armor> getAvailableEq(){
+        Weapon foundWeapon=new Weapon();
+        Armor foundArmor=new Armor();
+        for(Weapon w:this.weapons.getContent()){
+            if(w.usable){
+                foundWeapon=w;
+            }
+        }
+        for(Armor a:this.armors.getContent()){
+            if(a.usable){
+                foundArmor=a;
+            }
+        }
+        return Map.entry(foundWeapon,foundArmor);
+    }
     public void add(Item newItem) {
         String url = "jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
         //

@@ -24,7 +24,7 @@ public class SoldierController {
 
     public Soldier findById(int id) {
         for (Soldier soldier : generalSoldierList.getContent()) {
-            if (soldier.id() == id) {
+            if (soldier.getId() == id) {
                 return soldier;
             }
         }
@@ -76,7 +76,7 @@ public class SoldierController {
         String url ="jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
 //        ArrayList<Soldier> soldiers = resultSoldiers();
         for (Soldier soldier : generalSoldierList.getContent()) {
-            if (id == soldier.id()) {
+            if (id == soldier.getId()) {
                 generalSoldierList.remove(soldier);
                 return true;
             }
@@ -95,7 +95,7 @@ public class SoldierController {
     public boolean updateSoldier(int id, String newName, Rang newRang) {
         String url ="jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
         for (Soldier soldier : generalSoldierList.getContent()) {
-            if (id == soldier.id()) {
+            if (id == soldier.getId()) {
                 soldier.setName(newName);
                 soldier.setRang(newRang);
                 return true;

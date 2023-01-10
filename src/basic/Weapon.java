@@ -3,14 +3,9 @@ package basic;
 public class Weapon extends Item {
     @Override
     public void assignedTo(Soldier soldier) {
-
+        soldier.setWeapon(this);
+        this.usable=false;
     }
-
-    @Override
-    public boolean usable() {
-        return false;
-    }
-
     public String getName() {
         return name;
     }

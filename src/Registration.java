@@ -21,18 +21,18 @@ public class Registration {
     }
 
     void deleteSoldier(int id){
-        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.id(),id));
+        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.getId(),id));
     }
     void displaySoldiers(){
         for (Soldier soldier:generalSoldierList){
             System.out.println("Name: "+soldier.getName()+
-            "\tId: "+soldier.id()+"\tRang: "+soldier.getRang());
+            "\tId: "+soldier.getId()+"\tRang: "+soldier.getRang());
         }
     }
 
     void updateSoldier(int id, String newName, Rang newRang){
         for (Soldier soldier:generalSoldierList){
-            if(id== soldier.id()){
+            if(id== soldier.getId()){
                 soldier.setName(newName);
                 soldier.setRang(newRang);
             }

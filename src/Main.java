@@ -10,13 +10,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-//        Repository<Soldier> soldierRepository = populateSoldierRepo();
-//        Repository<Item> itemRepository = populateItemsRepo();
+    public static void main(String[] args) {/*
+
 //        itemRepository.display();
 //        soldierRepository.display();
-//        ItemController controller = new ItemController();
-        SoldierController controller = new SoldierController();
+//
 //        Armor armor = new Armor("Strong","Heavy",1);
 //        controller.add(armor);
 //        controller.removeItem(2,1);
@@ -26,33 +24,37 @@ public class Main {
         Soldier soldier1 = soldiers.get(1);
         System.out.println(soldier1.id());
         System.out.println(soldier1.getName());
-        System.out.println(soldier1.getRang());
-
+        System.out.println(soldier1.getRang());*/
+        globals globals=new globals();
+        Repository<Soldier> soldierRepository = populateSoldierRepo(globals);//new Repository<Soldier>();
+        Repository<Item> itemRepository = populateItemsRepo(globals);
+        UI ui=new UI(soldierRepository,itemRepository,globals);
+        ui.menu();
 
     }
 //
 
-    public static Repository<Soldier> populateSoldierRepo() {
+    public static Repository<Soldier> populateSoldierRepo(globals globals) {
         Repository<Soldier> soldierRepository = new Repository<Soldier>();
         SoldierController soldierController = new SoldierController(soldierRepository);
-        Soldier newSoldier = new Soldier("Alex", 1, Rang.Private);
+        Soldier newSoldier = new Soldier("Alex", globals.getSolID(), Rang.Private);
         soldierController.addSoldier(newSoldier);
-        newSoldier = new Soldier("Bob", 2, Rang.Officer);
+        newSoldier = new Soldier("Bob", globals.getSolID(), Rang.Officer);
         soldierController.addSoldier(newSoldier);
-        newSoldier = new Soldier("Martin", 3, Rang.Private);
+        newSoldier = new Soldier("Martin", globals.getSolID(), Rang.Private);
         soldierController.addSoldier(newSoldier);
-        newSoldier = new Soldier("Greg", 4, Rang.General);
+        newSoldier = new Soldier("Greg", globals.getSolID(), Rang.General);
         soldierController.addSoldier(newSoldier);
         return soldierRepository;
     }
 
-    public static Repository<Item> populateItemsRepo() {
+    public static Repository<Item> populateItemsRepo(globals globals) {
        Repository<Item> itemRepository = new Repository<Item>();
        ItemController itemController = new ItemController(itemRepository);
 
-       Weapon weapon = new Weapon("AK-74", (float) 7.62, 1);
-       Armor armor = new Armor("Heavy", "Heavy", 2);
-        Vehicle vehicle = new Vehicle("Humvee",3,new Soldier("John",2, Rang.Private));
+       Weapon weapon = new Weapon("AK-74", (float) 7.62, globals.getItemID());
+       Armor armor = new Armor("Heavy", "Heavy", globals.getItemID());
+        Vehicle vehicle = new Vehicle("Humvee",globals.getItemID(),new Soldier("John",2, Rang.Private));
 
        itemController.add(weapon);
        itemController.add(armor);

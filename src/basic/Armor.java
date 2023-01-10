@@ -3,14 +3,9 @@ package basic;
 public class Armor extends Item{
     @Override
     public void assignedTo(Soldier soldier) {
-
+        soldier.setArmor(this);
+        this.usable=false;
     }
-
-    @Override
-    public boolean usable() {
-        return false;
-    }
-
     public String getArmorType() {
         return armorType;
     }
