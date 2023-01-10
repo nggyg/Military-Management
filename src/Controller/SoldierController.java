@@ -29,6 +29,7 @@ public class SoldierController {
     public void addSoldier(Soldier newSoldier) {
         newSoldier.setRang(Rang.Private);
         generalSoldierList.add(newSoldier);
+        //save to database
     }
 
     public boolean deleteSoldier(int id) {
@@ -39,7 +40,7 @@ public class SoldierController {
                 return true;
             }
         }
-        return false;
+        return false;   //also update database
     }
 
     public boolean updateSoldier(int id, String newName, Rang newRang) {
@@ -49,12 +50,13 @@ public class SoldierController {
                 soldier.setRang(newRang);
                 return true;
             }
-        }
+        }       //also update database
         return false;
     }
 
     public void displaySoldiers() {
         this.generalSoldierList.display();
     }
+    //select from database
 
 }

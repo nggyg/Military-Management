@@ -5,7 +5,7 @@ import java.util.*;
 public class Vehicle extends Item {
     private String name;
     private int vehicleID;
-    private ArrayList<Soldier> driverList;
+    private Soldier driver;
 
     public String getName() {
         return name;
@@ -24,18 +24,18 @@ public class Vehicle extends Item {
         this.vehicleID = vehicleID;
     }
 
-    public ArrayList<Soldier> getDriverList() {
-        return driverList;
+    public Soldier getDriver() {
+        return driver;
     }
 
-    public void setDriverList(ArrayList<Soldier> driverList) {
-        this.driverList = driverList;
+    public void setDriver(Soldier driver) {
+        this.driver = driver;
     }
 
-    public Vehicle(String name, int id, ArrayList<Soldier> driverList) {
+    public Vehicle(String name, int id, Soldier driver) {
         this.name = name;
         this.vehicleID = id;
-        this.driverList = driverList;
+        this.driver = driver;
     }
 
     @Override

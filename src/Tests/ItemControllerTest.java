@@ -1,12 +1,8 @@
 package Tests;
 
 import Controller.ItemController;
-import basic.Soldier;
+import basic.*;
 import Repository.Repository;
-import basic.Armor;
-import basic.Item;
-import basic.Vehicle;
-import basic.Weapon;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -20,7 +16,7 @@ class ItemControllerTest {
         ItemController itemController = new ItemController();
         Weapon weapon = new Weapon("AK-74", (float) 7.62,1);
         Armor armor = new Armor("Heavy","Heavy",2);
-        Vehicle vehicle = new Vehicle("Humvee",3,new ArrayList<Soldier>());
+        Vehicle vehicle = new Vehicle("Humvee",3,new Soldier("John",2, Rang.Private));
 
         itemController.add(weapon);
         itemController.add(armor);
@@ -28,6 +24,7 @@ class ItemControllerTest {
         assert(itemController.findById(1)==weapon);
         assert(itemController.findById(2)==armor);
         assert (itemController.findById(3)==vehicle);
+
     }
 
     @Test
@@ -35,7 +32,7 @@ class ItemControllerTest {
         ItemController itemController = new ItemController();
         Weapon weapon = new Weapon("AK-74", (float) 7.62,1);
         Armor armor = new Armor("Heavy","Heavy",2);
-        Vehicle vehicle = new Vehicle("Humvee",3,new ArrayList<Soldier>());
+        Vehicle vehicle = new Vehicle("Humvee",3,new Soldier("John",2, Rang.Private));
 
         itemController.add(weapon);
         itemController.add(armor);
@@ -59,7 +56,7 @@ class ItemControllerTest {
         ItemController itemController = new ItemController();
         Weapon weapon = new Weapon("AK-74", (float) 7.62,1);
         Armor armor = new Armor("Heavy","Heavy",2);
-        Vehicle vehicle = new Vehicle("Humvee",3,new ArrayList<Soldier>());
+        Vehicle vehicle = new Vehicle("Humvee",3,new Soldier("John",2, Rang.Private));
 
         itemController.add(weapon);
         itemController.add(armor);

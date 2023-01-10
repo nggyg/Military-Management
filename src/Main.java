@@ -11,10 +11,15 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Repository<Soldier> soldierRepository = populateSoldierRepo();
-        Repository<Item> itemRepository = populateItemsRepo();
-        itemRepository.display();
-        soldierRepository.display();
+//        Repository<Soldier> soldierRepository = populateSoldierRepo();
+//        Repository<Item> itemRepository = populateItemsRepo();
+//        itemRepository.display();
+//        soldierRepository.display();
+        ItemController controller = new ItemController();
+        Armor armor = new Armor("Strong","Heavy",1);
+//        controller.add(armor);
+        controller.removeItem(2);
+
     }
 //
 
@@ -38,7 +43,7 @@ public class Main {
 
        Weapon weapon = new Weapon("AK-74", (float) 7.62, 1);
        Armor armor = new Armor("Heavy", "Heavy", 2);
-       Vehicle vehicle = new Vehicle("Humvee", 3, new ArrayList<Soldier>());
+        Vehicle vehicle = new Vehicle("Humvee",3,new Soldier("John",2, Rang.Private));
 
        itemController.add(weapon);
        itemController.add(armor);

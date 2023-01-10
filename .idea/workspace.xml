@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Database works">
+    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Database works 2.0">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab/storage_v2/_src_/database/MillitaryManagement.xEUoGQ/schema/dbo.sYMBAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6f986386-8093-4be3-9441-fe3a177237ab/storage_v2/_src_/database/MillitaryManagement.xEUoGQ/schema/dbo.sYMBAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SoldierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SoldierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basic/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +105,8 @@
       <workItem from="1670314060568" duration="2714000" />
       <workItem from="1671458729204" duration="1235000" />
       <workItem from="1671530906838" duration="3839000" />
-      <workItem from="1671534970523" duration="1512000" />
+      <workItem from="1671534970523" duration="3353000" />
+      <workItem from="1673330985497" duration="3628000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1666618728948</created>
@@ -219,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671535655285</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Database works 2.0">
+      <created>1671536507456</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1671536507456</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +300,8 @@
     <MESSAGE value="getAll for ItemController" />
     <MESSAGE value="Database added" />
     <MESSAGE value="Database works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database works" />
+    <MESSAGE value="Database works 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database works 2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

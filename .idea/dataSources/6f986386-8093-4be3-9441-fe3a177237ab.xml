@@ -24,6 +24,8 @@
 0|root||265|connect sql|G
 0|root||266|connect sql|G
 0|root||267|connect sql|G
+0|root||268|connect sql|G
+0|root||269|connect sql|G
 0|root||105|control server|G
 0|root||2|view any database|G
 0|root||101|view any definition|G
@@ -36,7 +38,7 @@
 0|root||257|view server state|G
 0|root||264|view server state|G
 0|root||265|view server state|G</Grants>
-      <PermissionsCheckSum>47332829657</PermissionsCheckSum>
+      <PermissionsCheckSum>50824967123</PermissionsCheckSum>
       <ServerVersion>15.0.2000</ServerVersion>
     </root>
     <collation id="2" parent="1" name="Albanian_100_BIN">
@@ -16751,167 +16753,319 @@
       <Enabled>1</Enabled>
       <ObjectId>267</ObjectId>
     </login>
-    <role id="5546" parent="5512" name="INFORMATION_SCHEMA">
+    <login id="5546" parent="1" name="login1">
+      <DefaultDatabase>master</DefaultDatabase>
+      <Enabled>1</Enabled>
+      <ObjectId>268</ObjectId>
+    </login>
+    <login id="5547" parent="1" name="login2">
+      <DefaultDatabase>master</DefaultDatabase>
+      <Enabled>1</Enabled>
+      <ObjectId>269</ObjectId>
+    </login>
+    <role id="5548" parent="5512" name="INFORMATION_SCHEMA">
       <AuthType>none</AuthType>
       <ObjectId>3</ObjectId>
     </role>
-    <role id="5547" parent="5512" name="db_accessadmin">
+    <role id="5549" parent="5512" name="db_accessadmin">
       <AuthType>none</AuthType>
       <ObjectId>16385</ObjectId>
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5548" parent="5512" name="db_backupoperator">
+    <role id="5550" parent="5512" name="db_backupoperator">
       <AuthType>none</AuthType>
       <ObjectId>16389</ObjectId>
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5549" parent="5512" name="db_datareader">
+    <role id="5551" parent="5512" name="db_datareader">
       <AuthType>none</AuthType>
       <ObjectId>16390</ObjectId>
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5550" parent="5512" name="db_datawriter">
+    <role id="5552" parent="5512" name="db_datawriter">
       <AuthType>none</AuthType>
       <ObjectId>16391</ObjectId>
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5551" parent="5512" name="db_ddladmin">
+    <role id="5553" parent="5512" name="db_ddladmin">
       <AuthType>none</AuthType>
       <ObjectId>16387</ObjectId>
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5552" parent="5512" name="db_denydatareader">
+    <role id="5554" parent="5512" name="db_denydatareader">
       <AuthType>none</AuthType>
       <ObjectId>16392</ObjectId>
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5553" parent="5512" name="db_denydatawriter">
+    <role id="5555" parent="5512" name="db_denydatawriter">
       <AuthType>none</AuthType>
       <ObjectId>16393</ObjectId>
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5554" parent="5512" name="db_owner">
+    <role id="5556" parent="5512" name="db_owner">
       <AuthType>none</AuthType>
       <ObjectId>16384</ObjectId>
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5555" parent="5512" name="db_securityadmin">
+    <role id="5557" parent="5512" name="db_securityadmin">
       <AuthType>none</AuthType>
       <ObjectId>16386</ObjectId>
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5556" parent="5512" name="dbo">
+    <role id="5558" parent="5512" name="dbo">
       <AuthType>windows</AuthType>
       <DefaultSchema>dbo</DefaultSchema>
       <ObjectId>1</ObjectId>
       <Type>windows-user</Type>
     </role>
-    <role id="5557" parent="5512" name="guest">
+    <role id="5559" parent="5512" name="guest">
       <AuthType>none</AuthType>
       <DefaultSchema>guest</DefaultSchema>
       <ObjectId>2</ObjectId>
     </role>
-    <role id="5558" parent="5512" name="public">
+    <role id="5560" parent="5512" name="public">
       <AuthType>none</AuthType>
       <ObjectId>0</ObjectId>
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5559" parent="5512" name="sys">
+    <role id="5561" parent="5512" name="sys">
       <AuthType>none</AuthType>
       <ObjectId>4</ObjectId>
     </role>
-    <schema id="5560" parent="5512" name="INFORMATION_SCHEMA">
+    <schema id="5562" parent="5512" name="INFORMATION_SCHEMA">
       <ObjectId>3</ObjectId>
     </schema>
-    <schema id="5561" parent="5512" name="db_accessadmin">
+    <schema id="5563" parent="5512" name="db_accessadmin">
       <ObjectId>16385</ObjectId>
     </schema>
-    <schema id="5562" parent="5512" name="db_backupoperator">
+    <schema id="5564" parent="5512" name="db_backupoperator">
       <ObjectId>16389</ObjectId>
     </schema>
-    <schema id="5563" parent="5512" name="db_datareader">
+    <schema id="5565" parent="5512" name="db_datareader">
       <ObjectId>16390</ObjectId>
     </schema>
-    <schema id="5564" parent="5512" name="db_datawriter">
+    <schema id="5566" parent="5512" name="db_datawriter">
       <ObjectId>16391</ObjectId>
     </schema>
-    <schema id="5565" parent="5512" name="db_ddladmin">
+    <schema id="5567" parent="5512" name="db_ddladmin">
       <ObjectId>16387</ObjectId>
     </schema>
-    <schema id="5566" parent="5512" name="db_denydatareader">
+    <schema id="5568" parent="5512" name="db_denydatareader">
       <ObjectId>16392</ObjectId>
     </schema>
-    <schema id="5567" parent="5512" name="db_denydatawriter">
+    <schema id="5569" parent="5512" name="db_denydatawriter">
       <ObjectId>16393</ObjectId>
     </schema>
-    <schema id="5568" parent="5512" name="db_owner">
+    <schema id="5570" parent="5512" name="db_owner">
       <ObjectId>16384</ObjectId>
     </schema>
-    <schema id="5569" parent="5512" name="db_securityadmin">
+    <schema id="5571" parent="5512" name="db_securityadmin">
       <ObjectId>16386</ObjectId>
     </schema>
-    <schema id="5570" parent="5512" name="dbo">
+    <schema id="5572" parent="5512" name="dbo">
       <Current>1</Current>
-      <IntrospectionTimestamp>2022-12-20.14:31:58.490</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-01-10.10:56:01.767</IntrospectionTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
-    <schema id="5571" parent="5512" name="guest">
+    <schema id="5573" parent="5512" name="guest">
       <ObjectId>2</ObjectId>
     </schema>
-    <schema id="5572" parent="5512" name="sys">
+    <schema id="5574" parent="5512" name="sys">
       <ObjectId>4</ObjectId>
     </schema>
-    <table id="5573" parent="5570" name="Soldier">
+    <table id="5575" parent="5572" name="Armor">
+      <CreatedTimestamp>2023-01-10.10:39:48.993</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-10.10:39:48.993</ModifiedTimestamp>
+      <ObjectId>1253579504</ObjectId>
+    </table>
+    <table id="5576" parent="5572" name="Drivers">
+      <CreatedTimestamp>2023-01-10.10:42:36.543</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-10.10:56:01.197</ModifiedTimestamp>
+      <ObjectId>1301579675</ObjectId>
+    </table>
+    <table id="5577" parent="5572" name="Soldier">
       <CreatedTimestamp>2022-12-20.14:31:56.547</CreatedTimestamp>
       <ModifiedTimestamp>2022-12-20.14:31:56.547</ModifiedTimestamp>
       <ObjectId>1205579333</ObjectId>
     </table>
-    <table id="5574" parent="5570" name="testTable">
+    <table id="5578" parent="5572" name="Vehicle">
+      <CreatedTimestamp>2023-01-10.10:56:01.193</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-10.10:56:01.193</ModifiedTimestamp>
+      <ObjectId>1429580131</ObjectId>
+    </table>
+    <table id="5579" parent="5572" name="Weapon">
+      <CreatedTimestamp>2023-01-10.10:20:38.060</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-10.10:20:38.060</ModifiedTimestamp>
+      <ObjectId>1221579390</ObjectId>
+    </table>
+    <table id="5580" parent="5572" name="testTable">
       <CreatedTimestamp>2022-11-22.11:45:47.410</CreatedTimestamp>
       <ModifiedTimestamp>2022-11-22.11:45:47.410</ModifiedTimestamp>
       <ObjectId>885578193</ObjectId>
     </table>
-    <column id="5575" parent="5573" name="id">
+    <column id="5581" parent="5575" name="armorID">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="5576" parent="5573" name="name">
+    <column id="5582" parent="5575" name="armorType">
       <DataType>varchar(20 char)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="5577" parent="5573" name="rang">
+    <column id="5583" parent="5575" name="armorLightness">
+      <DataType>varchar(20 char)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <index id="5584" parent="5575" name="PK__Armor__D9E53B5817DEB28A">
+      <Clustering>1</Clustering>
+      <ColNames>armorID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5585" parent="5575" name="PK__Armor__D9E53B5817DEB28A">
+      <CreatedTimestamp>2023-01-10.10:39:48.997</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-10.10:39:48.997</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>1269579561</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK__Armor__D9E53B5817DEB28A</UnderlyingIndexName>
+    </key>
+    <column id="5586" parent="5576" name="driverID">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5587" parent="5576" name="Name">
+      <DataType>varchar(20 char)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <index id="5588" parent="5576" name="PK__Drivers__F1532C129A7C0E23">
+      <Clustering>1</Clustering>
+      <ColNames>driverID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5589" parent="5576" name="PK__Drivers__F1532C129A7C0E23">
+      <CreatedTimestamp>2023-01-10.10:42:36.547</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-10.10:42:36.547</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>1317579732</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK__Drivers__F1532C129A7C0E23</UnderlyingIndexName>
+    </key>
+    <column id="5590" parent="5577" name="id">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5591" parent="5577" name="name">
+      <DataType>varchar(20 char)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="5592" parent="5577" name="rang">
       <DataType>varchar(10 char)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="5578" parent="5574" name="id">
+    <column id="5593" parent="5578" name="vehicleID">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5594" parent="5578" name="Name">
+      <DataType>varchar(20 char)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="5595" parent="5578" name="driver">
+      <DataType>int|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <foreign-key id="5596" parent="5578" name="FK__Vehicle__driver__571DF1D5">
+      <ColNames>driver</ColNames>
+      <CreatedTimestamp>2023-01-10.10:56:01.193</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-10.10:56:01.193</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>1461580245</ObjectId>
+      <RefColNames>driverID</RefColNames>
+      <RefTableId>1301579675</RefTableId>
+      <RefTableName>Drivers</RefTableName>
+    </foreign-key>
+    <index id="5597" parent="5578" name="PK__Vehicle__5B9D25D29A9F7CF2">
+      <Clustering>1</Clustering>
+      <ColNames>vehicleID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5598" parent="5578" name="PK__Vehicle__5B9D25D29A9F7CF2">
+      <CreatedTimestamp>2023-01-10.10:56:01.193</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-10.10:56:01.193</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>1445580188</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK__Vehicle__5B9D25D29A9F7CF2</UnderlyingIndexName>
+    </key>
+    <column id="5599" parent="5579" name="weaponID">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="5600" parent="5579" name="Name">
+      <DataType>varchar(20 char)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="5601" parent="5579" name="calibre">
+      <DataType>float|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <index id="5602" parent="5579" name="PK__Weapon__4647E646201D5C2F">
+      <Clustering>1</Clustering>
+      <ColNames>weaponID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Position>1</Position>
+      <Unique>1</Unique>
+    </index>
+    <key id="5603" parent="5579" name="PK__Weapon__4647E646201D5C2F">
+      <CreatedTimestamp>2023-01-10.10:20:38.077</CreatedTimestamp>
+      <ModifiedTimestamp>2023-01-10.10:20:38.077</ModifiedTimestamp>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>1237579447</ObjectId>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PK__Weapon__4647E646201D5C2F</UnderlyingIndexName>
+    </key>
+    <column id="5604" parent="5580" name="id">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5579" parent="5574" name="name">
+    <column id="5605" parent="5580" name="name">
       <DataType>varchar(20 char)|0s</DataType>
       <Position>2</Position>
     </column>
-    <index id="5580" parent="5574" name="PK__testTabl__3213E83F53CE66C9">
+    <index id="5606" parent="5580" name="PK__testTabl__3213E83F53CE66C9">
       <Clustering>1</Clustering>
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Position>1</Position>
       <Unique>1</Unique>
     </index>
-    <key id="5581" parent="5574" name="PK__testTabl__3213E83F53CE66C9">
+    <key id="5607" parent="5580" name="PK__testTabl__3213E83F53CE66C9">
       <CreatedTimestamp>2022-11-22.11:45:47.413</CreatedTimestamp>
       <ModifiedTimestamp>2022-11-22.11:45:47.413</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>

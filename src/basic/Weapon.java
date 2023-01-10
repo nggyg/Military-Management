@@ -36,7 +36,7 @@ public class Weapon extends Item {
         this.weaponID = weaponID;
     }
 
-    public Weapon(String name, float calibre, int weaponID) {
+    public Weapon(String name, double calibre, int weaponID) {
         this.name = name;
         this.calibre = calibre;
         this.weaponID = weaponID;

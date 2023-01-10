@@ -3,6 +3,10 @@ package Controller;
 import Repository.*;
 import basic.*;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -55,20 +59,62 @@ public class ItemController {
     }
 
     public void add(Item newItem) {
-        if (newItem.getClass() == Weapon.class)
+        String url ="jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
+        if (newItem.getClass() == Weapon.class) {
             this.weapons.add((Weapon) newItem);
-        else if (newItem.getClass() == Armor.class)
+            try {
+                Connection connection = DriverManager.getConnection(url);
+                Statement statement = connection.createStatement();
+                statement.executeUpdate("insert into Weapon (Name, calibre) values (' "+((Weapon) newItem).getName()+
+                        " ', ' "+((Weapon) newItem).getCalibre()+" ')");
+            }catch(Exception e){
+                System.out.println("Failed");
+                System.out.println(e.getMessage());
+            }
+        }
+        else if (newItem.getClass() == Armor.class) {
             this.armors.add((Armor) newItem);
-        else if (newItem.getClass() == Vehicle.class)
+            try {
+                Connection connection = DriverManager.getConnection(url);
+                Statement statement = connection.createStatement();
+                statement.executeUpdate("insert into Armor (armorType, armorLightness) values (' "+((Armor) newItem).getArmorType()+
+                        " ', ' "+((Armor) newItem).getArmorLightness()+" ')");
+            }catch(Exception e){
+                System.out.println("Failed");
+                System.out.println(e.getMessage());
+            }
+        }
+        else if (newItem.getClass() == Vehicle.class) {
             this.vehicles.add((Vehicle) newItem);
+            try {
+                Connection connection = DriverManager.getConnection(url);
+                Statement statement = connection.createStatement();
+                statement.executeUpdate("insert into Vehicle (Name, driver1,driver2,driver3,driver4) values (' "+((Vehicle) newItem).getName()+
+                        " ', ' "+((Vehicle) newItem).getDriver()+" ')");
+            }catch(Exception e){
+                System.out.println("Failed");
+                System.out.println(e.getMessage());
+            }
+        }
+
+
     }
 
     public boolean removeItem(int id) {
         Object foundItem = this.findById(id);
+        String url ="jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
         if (foundItem == null)
             return false;
         if (foundItem.getClass() == Armor.class) {
             this.armors.remove((Armor) foundItem);
+            try {
+                Connection connection = DriverManager.getConnection(url);
+                Statement statement = connection.createStatement();
+                statement.executeUpdate("delete from Armor where id = ' "+id+" '");
+            }catch(Exception e){
+                System.out.println("Failed");
+                System.out.println(e.getMessage());
+            }
             return true;
         } else if (foundItem.getClass() == Weapon.class) {
             this.weapons.remove((Weapon) foundItem);
