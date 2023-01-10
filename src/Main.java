@@ -15,10 +15,19 @@ public class Main {
 //        Repository<Item> itemRepository = populateItemsRepo();
 //        itemRepository.display();
 //        soldierRepository.display();
-        ItemController controller = new ItemController();
-        Armor armor = new Armor("Strong","Heavy",1);
+//        ItemController controller = new ItemController();
+        SoldierController controller = new SoldierController();
+//        Armor armor = new Armor("Strong","Heavy",1);
 //        controller.add(armor);
-        controller.removeItem(2);
+//        controller.removeItem(2,1);
+        controller.resultSoldiers();
+        ArrayList<Soldier> soldiers= new ArrayList<Soldier>();
+        soldiers = controller.resultSoldiers();
+        Soldier soldier1 = soldiers.get(1);
+        System.out.println(soldier1.id());
+        System.out.println(soldier1.getName());
+        System.out.println(soldier1.getRang());
+
 
     }
 //

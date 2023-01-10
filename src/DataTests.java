@@ -13,8 +13,8 @@ public class DataTests {
         try {
             Connection connection = DriverManager.getConnection(url);
             Statement statement = connection.createStatement();
-//            statement.executeUpdate("insert into Soldier (name, rang) values (' "+soldier.getName()+
-//                    " ', ' "+soldier.getRang()+" ')");
+            statement.executeUpdate("insert into Soldier (name, rang) values (' "+soldier.getName()+
+                    " ', ' "+soldier.getRang()+" ')");
 
             ResultSet resultSet =statement.executeQuery("select * from Soldier where id=1");
             Soldier soldier1 = null;

@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Database works 3.0" />
+    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Database works 3.0.1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SoldierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SoldierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ItemControllerTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +103,7 @@
       <workItem from="1671458729204" duration="1235000" />
       <workItem from="1671530906838" duration="3839000" />
       <workItem from="1671534970523" duration="3353000" />
-      <workItem from="1673330985497" duration="3973000" />
+      <workItem from="1673330985497" duration="6278000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1666618728948</created>
@@ -231,7 +238,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673334646370</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Database works 3.0">
+      <created>1673334974696</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1673334974696</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Database works 3.0.1">
+      <created>1673335085987</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1673335085987</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +320,8 @@
     <MESSAGE value="Database works" />
     <MESSAGE value="Database works 2.0" />
     <MESSAGE value="Database works 3.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database works 3.0" />
+    <MESSAGE value="Database works 3.0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database works 3.0.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

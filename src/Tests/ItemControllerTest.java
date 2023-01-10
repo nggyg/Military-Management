@@ -31,22 +31,22 @@ class ItemControllerTest {
     void removeItem() {
         ItemController itemController = new ItemController();
         Weapon weapon = new Weapon("AK-74", (float) 7.62,1);
-        Armor armor = new Armor("Heavy","Heavy",2);
-        Vehicle vehicle = new Vehicle("Humvee",3,new Soldier("John",2, Rang.Private));
+        Armor armor = new Armor("Heavy","Heavy",1);
+        Vehicle vehicle = new Vehicle("Humvee",1,new Soldier("John",1, Rang.Private));
 
         itemController.add(weapon);
         itemController.add(armor);
         itemController.add(vehicle);
-        assert(itemController.removeItem(1));
-        assert(!itemController.removeItem(1));
+        assert(itemController.removeItem(1,2));
+        assert(!itemController.removeItem(1,2));
         assert(itemController.findById(1)==null);
 
-        assert(itemController.removeItem(2));
-        assert(!itemController.removeItem(2));
+        assert(itemController.removeItem(1,1));
+        assert(!itemController.removeItem(1,1));
         assert(itemController.findById(2)==null);
 
-        assert(itemController.removeItem(3));
-        assert(!itemController.removeItem(3));
+        assert(itemController.removeItem(1,3));
+        assert(!itemController.removeItem(1,3));
         assert(itemController.findById(3)==null);
 
     }
