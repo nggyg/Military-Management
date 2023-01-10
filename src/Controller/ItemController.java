@@ -60,6 +60,7 @@ public class ItemController {
 
     public void add(Item newItem) {
         String url ="jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
+        //
         if (newItem.getClass() == Weapon.class) {
             this.weapons.add((Weapon) newItem);
             try {
