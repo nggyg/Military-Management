@@ -40,12 +40,12 @@ public class SoldierController {
             Statement statement = connection.createStatement();
             int id=1;
             String idnull = " ";
-            while(id==1) {
+            while(idnull!="NULL") {
                 ResultSet resultSet = statement.executeQuery("select * from Soldier where id=' "+id+" '");
                 Soldier soldier1 = null;
                 while (resultSet.next()) {
                     soldier1 = new Soldier(resultSet.getString("name"), resultSet.getInt("id"), Rang.valueOf(resultSet.getString("rang")));
-
+                    idnull = resultSet.getString(("id"));
                 }
                 soldiers.add(soldier1);
                 id++;
@@ -65,7 +65,7 @@ public class SoldierController {
             Connection connection = DriverManager.getConnection(url);
             Statement statement = connection.createStatement();
             statement.executeUpdate("insert into Soldier (name, rang) values (' "+newSoldier.getName()+
-                    " ', ' "+newSoldier.getRang()+" ')");
+                    " ', ' "+newSoldier.getRang()+"')");
         } catch (Exception e) {
             System.out.println("Failed");
             System.out.println(e.getMessage());
@@ -73,24 +73,42 @@ public class SoldierController {
     }
 
     public boolean deleteSoldier(int id) {
-//        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.id(),id));
+        String url ="jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
+//        ArrayList<Soldier> soldiers = resultSoldiers();
         for (Soldier soldier : generalSoldierList.getContent()) {
             if (id == soldier.id()) {
                 generalSoldierList.remove(soldier);
                 return true;
             }
         }
-        return false;   //also update database
+        try {
+            Connection connection = DriverManager.getConnection(url);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("delete from Soldier where id = '"+id+"'");
+        } catch (Exception e) {
+            System.out.println("Failed");
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
     public boolean updateSoldier(int id, String newName, Rang newRang) {
+        String url ="jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
         for (Soldier soldier : generalSoldierList.getContent()) {
             if (id == soldier.id()) {
                 soldier.setName(newName);
                 soldier.setRang(newRang);
                 return true;
             }
-        }       //also update database
+        }
+        try {
+            Connection connection = DriverManager.getConnection(url);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("update Soldier set name= '"+newName+"' , set rang='"+newRang+"'");
+        } catch (Exception e) {
+            System.out.println("Failed");
+            System.out.println(e.getMessage());
+        }
         return false;
     }
 

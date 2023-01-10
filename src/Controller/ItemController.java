@@ -90,15 +90,13 @@ public class ItemController {
             try {
                 Connection connection = DriverManager.getConnection(url);
                 Statement statement = connection.createStatement();
-                statement.executeUpdate("insert into Vehicle (Name, driver1,driver2,driver3,driver4) values (' " + ((Vehicle) newItem).getName() +
+                statement.executeUpdate("insert into Vehicle (Name, driver) values (' " + ((Vehicle) newItem).getName() +
                         " ', ' " + ((Vehicle) newItem).getDriver() + " ')");
             } catch (Exception e) {
                 System.out.println("Failed");
                 System.out.println(e.getMessage());
             }
         }
-
-
     }
 
     public boolean removeItem(int id, int option) {
@@ -155,6 +153,7 @@ public class ItemController {
     }
 
     public boolean updateWeapon(String newName, double newCalibre, int id) {
+        String url = "jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
         for (Weapon weapon : weapons.getContent()) {
             if (id == weapon.getID()) {
                 weapon.setCalibre(newCalibre);
@@ -162,10 +161,19 @@ public class ItemController {
                 return true;
             }
         }
+        try {
+            Connection connection = DriverManager.getConnection(url);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("update Weapon set calibre = ' "+newCalibre+"', Namew= '" +newName+"' ");
+        } catch (Exception e) {
+            System.out.println("Failed");
+            System.out.println(e.getMessage());
+        }
         return false;
     }
 
     public boolean updateArmor(String newArmorType, String newArmorLightness, int id) {
+        String url = "jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
         for (Armor armor : armors.getContent()) {
             if (id == armor.getID()) {
                 armor.setArmorLightness(newArmorLightness);
@@ -173,15 +181,32 @@ public class ItemController {
                 return true;
             }
         }
+        try {
+            Connection connection = DriverManager.getConnection(url);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("update Armor set armorType = ' "+newArmorType+"', armorLightness= '" +newArmorLightness+"' ");
+        } catch (Exception e) {
+            System.out.println("Failed");
+            System.out.println(e.getMessage());
+        }
         return false;
     }
 
     public boolean updateVehicle(String newName, int id) {
+        String url = "jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
         for (Vehicle vehicle : vehicles.getContent()) {
             if (id == vehicle.getID()) {
                 vehicle.setName(newName);
                 return true;
             }
+        }
+        try {
+            Connection connection = DriverManager.getConnection(url);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("update Vehicle set Name ='"+newName+"'");
+        } catch (Exception e) {
+            System.out.println("Failed");
+            System.out.println(e.getMessage());
         }
         return false;
     }
