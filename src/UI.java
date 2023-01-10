@@ -88,6 +88,7 @@ public class UI {
                                 s.setEquipment(this.itemController.getAvailableEq());
                                 this.itemController.findById(s.getEquipment().getKey().getID()/*weapon*/).assignedTo(s);
                                 this.itemController.findById(s.getEquipment().getValue().getID()/*armor*/).assignedTo(s);
+                                System.out.println(s);
                                 this.soldierController.addSoldier(s);
                                 break;
                             }
