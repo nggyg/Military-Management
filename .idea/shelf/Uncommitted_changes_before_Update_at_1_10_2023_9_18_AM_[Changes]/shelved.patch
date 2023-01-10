@@ -1,0 +1,584 @@
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"dataSourceStorageLocal\" created-in=\"IU-222.4167.29\">\r\n    <data-source name=\"@DESKTOP-GLDFCK4\" uuid=\"6f986386-8093-4be3-9441-fe3a177237ab\">\r\n      <database-info product=\"Microsoft SQL Server\" version=\"15.00.2000\" jdbc-version=\"4.2\" driver-name=\"Microsoft JDBC Driver 11.2 for SQL Server\" driver-version=\"11.2.0.0\" dbms=\"MSSQL\" exact-version=\"15.0.2000\" exact-driver-version=\"11.2\">\r\n        <extra-name-characters>$#@</extra-name-characters>\r\n        <identifier-quote-string>&quot;</identifier-quote-string>\r\n      </database-info>\r\n      <case-sensitivity plain-identifiers=\"mixed\" quoted-identifiers=\"mixed\" />\r\n      <secret-storage>master_key</secret-storage>\r\n      <user-name>test</user-name>\r\n      <schema-mapping>\r\n        <introspection-scope>\r\n          <node kind=\"database\" qname=\"@\">\r\n            <node kind=\"schema\" qname=\"@\" />\r\n          </node>\r\n        </introspection-scope>\r\n      </schema-mapping>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+--- a/.idea/dataSources.local.xml	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/.idea/dataSources.local.xml	(date 1673334658856)
+@@ -1,18 +1,21 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="dataSourceStorageLocal" created-in="IU-222.4167.29">
+-    <data-source name="@DESKTOP-GLDFCK4" uuid="6f986386-8093-4be3-9441-fe3a177237ab">
++    <data-source name="JDB1@localhost" uuid="a856d4e1-76cb-42af-9efd-907e58aa3b25">
+       <database-info product="Microsoft SQL Server" version="15.00.2000" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 11.2 for SQL Server" driver-version="11.2.0.0" dbms="MSSQL" exact-version="15.0.2000" exact-driver-version="11.2">
+         <extra-name-characters>$#@</extra-name-characters>
+         <identifier-quote-string>&quot;</identifier-quote-string>
+       </database-info>
+       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+       <secret-storage>master_key</secret-storage>
+-      <user-name>test</user-name>
++      <auth-provider>ms-sso</auth-provider>
+       <schema-mapping>
+         <introspection-scope>
+-          <node kind="database" qname="@">
+-            <node kind="schema" qname="@" />
++          <node negative="1">
++            <node kind="database" qname="@">
++              <node kind="schema" qname="@" />
++            </node>
++            <node kind="database" qname="master" />
+           </node>
+         </introspection-scope>
+       </schema-mapping>
+Index: src/basic/Person.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package basic;\r\n\r\npublic class Person {\r\n    private String name;\r\n    private int id;\r\n\r\n    public String getName() {\r\n        return name;\r\n    }\r\n\r\n    public void setName(String name) {\r\n        this.name = name;\r\n    }\r\n\r\n    public int id() {\r\n        return id;\r\n    }\r\n\r\n    public void setId(int id) {\r\n        this.id = id;\r\n    }\r\n\r\n    public Person(String name, int id) {\r\n        this.name = name;\r\n        this.id = id;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/basic/Person.java b/src/basic/Person.java
+--- a/src/basic/Person.java	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/src/basic/Person.java	(date 1673333860898)
+@@ -4,6 +4,11 @@
+     private String name;
+     private int id;
+ 
++    public Person(int id) {
++        name="tbd";
++        this.id=id;
++    }
++
+     public String getName() {
+         return name;
+     }
+@@ -12,8 +17,8 @@
+         this.name = name;
+     }
+ 
+-    public int id() {
+-        return id;
++    public int getId() {
++        return id++;
+     }
+ 
+     public void setId(int id) {
+Index: src/DataTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import basic.Rang;\r\nimport basic.Soldier;\r\nimport basic.Rang.*;\r\nimport java.sql.*;\r\nimport basic.Soldier;\r\n\r\nimport static basic.Rang.General;\r\n\r\npublic class DataTests {\r\n    public static void main(String[] args) throws SQLException {\r\n        Soldier soldier = new Soldier(\"Soldatu1\",2,General);\r\n        String url =\"jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true\";\r\n        try {\r\n            Connection connection = DriverManager.getConnection(url);\r\n            Statement statement = connection.createStatement();\r\n//            statement.executeUpdate(\"insert into Soldier (name, rang) values (' \"+soldier.getName()+\r\n//                    \" ', ' \"+soldier.getRang()+\" ')\");\r\n\r\n            ResultSet resultSet =statement.executeQuery(\"select * from Soldier where id=1\");\r\n            Soldier soldier1 = null;\r\n            while(resultSet.next()){\r\n                soldier1 = new Soldier(resultSet.getString(\"name\"),resultSet.getInt(\"id\"),Rang.valueOf( resultSet.getString(\"rang\")));\r\n\r\n            }\r\n            System.out.println(soldier1.id());\r\n            System.out.println(soldier1.getName());\r\n            System.out.println(soldier1.getRang());\r\n        }catch(Exception e){\r\n            System.out.println(\"Failed\");\r\n            System.out.println(e.getMessage());\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/DataTests.java b/src/DataTests.java
+--- a/src/DataTests.java	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/src/DataTests.java	(date 1673333973998)
+@@ -1,15 +1,14 @@
+ import basic.Rang;
+ import basic.Soldier;
+-import basic.Rang.*;
++
+ import java.sql.*;
+-import basic.Soldier;
+ 
+ import static basic.Rang.General;
+ 
+ public class DataTests {
+     public static void main(String[] args) throws SQLException {
+         Soldier soldier = new Soldier("Soldatu1",2,General);
+-        String url ="jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
++        String url ="jdbc:sqlserver://localhost//SQLEXPRESS:1433;database=JDB1";//"jdbc:sqlserver://DESKTOP-GLDFCK4;databaseName=MillitaryManagement;user=test;password=123;encrypt=true;trustServerCertificate=true";
+         try {
+             Connection connection = DriverManager.getConnection(url);
+             Statement statement = connection.createStatement();
+@@ -22,7 +21,7 @@
+                 soldier1 = new Soldier(resultSet.getString("name"),resultSet.getInt("id"),Rang.valueOf( resultSet.getString("rang")));
+ 
+             }
+-            System.out.println(soldier1.id());
++            System.out.println(soldier1.getId());
+             System.out.println(soldier1.getName());
+             System.out.println(soldier1.getRang());
+         }catch(Exception e){
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c534258e-704f-4e6c-8e59-d0d40218dec3\" name=\"Changes\" comment=\"Database works\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/DataTests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/DataTests.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"JUnit5 Test Class\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2GaCm8W7ZMZA8i2sTdYZzcRTbst\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,\r\n    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,\r\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,\r\n    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/sofar/Desktop/Facultate/Sem3/Fortgeschrittene_Programierung/sqljdbc_11.2/enu/mssql-jdbc-11.2.1.jre18.jar&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;sqlserver&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateTestDialog.Recents.Supers\">\r\n      <recent name=\"\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.RecentsKey\">\r\n      <recent name=\"Tests\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c534258e-704f-4e6c-8e59-d0d40218dec3\" name=\"Changes\" comment=\"\" />\r\n      <created>1666617465233</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1666617465233</updated>\r\n      <workItem from=\"1666617466391\" duration=\"733000\" />\r\n      <workItem from=\"1668096625842\" duration=\"326000\" />\r\n      <workItem from=\"1668499617929\" duration=\"4313000\" />\r\n      <workItem from=\"1668505421399\" duration=\"2843000\" />\r\n      <workItem from=\"1669102385762\" duration=\"70000\" />\r\n      <workItem from=\"1669102588105\" duration=\"19000\" />\r\n      <workItem from=\"1669102828759\" duration=\"529000\" />\r\n      <workItem from=\"1670314060568\" duration=\"2714000\" />\r\n      <workItem from=\"1671458729204\" duration=\"1235000\" />\r\n      <workItem from=\"1671530906838\" duration=\"3839000\" />\r\n      <workItem from=\"1671534970523\" duration=\"1512000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Test\">\r\n      <created>1666618728948</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666618728948</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"First commit\">\r\n      <created>1666619709802</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666619709802</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"expanded upon batalion\">\r\n      <created>1666684293002</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666684293002</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"CRUD in Registration&#10;Metoda Menu comentata in Main.java&#10;Metode testate in Main.java\">\r\n      <created>1667245560126</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667245560126</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Soldier Controller created\">\r\n      <created>1667292404550</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667292404550</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Tests\">\r\n      <created>1667293674132</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667293674132</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Tests 2\">\r\n      <created>1667294294294</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667294294294</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Tests 3\">\r\n      <created>1667294598822</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667294598822</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Tests 3\">\r\n      <created>1667294737606</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667294737606</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"reformated\">\r\n      <created>1667899952045</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667899952045</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"reformated\">\r\n      <created>1667900042411</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1667900042411</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"UI getting started\">\r\n      <created>1668504539953</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668504539953</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"UI only one\">\r\n      <created>1668504646670</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668504646670</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"getAll for ItemController\">\r\n      <created>1668505941797</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1668505941797</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Database added\">\r\n      <created>1670314279076</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670314279076</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Database added\">\r\n      <created>1670314508553</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670314508553</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Database works\">\r\n      <created>1671535655285</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1671535655285</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"18\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"database\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"Branch\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"database\" />\r\n                </option>\r\n              </RecentGroup>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"master\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Test\" />\r\n    <MESSAGE value=\"First commit\" />\r\n    <MESSAGE value=\"expanded upon batalion\" />\r\n    <MESSAGE value=\"CRUD in Registration&#10;Metoda Menu comentata in Main.java&#10;Metode testate in Main.java\" />\r\n    <MESSAGE value=\"Soldier Controller created\" />\r\n    <MESSAGE value=\"Tests\" />\r\n    <MESSAGE value=\"Tests 2\" />\r\n    <MESSAGE value=\"Tests 3\" />\r\n    <MESSAGE value=\"item controller methods refined to acomodate multiple repositories\" />\r\n    <MESSAGE value=\"reformated\" />\r\n    <MESSAGE value=\"UI getting started\" />\r\n    <MESSAGE value=\"UI only one\" />\r\n    <MESSAGE value=\"getAll for ItemController\" />\r\n    <MESSAGE value=\"Database added\" />\r\n    <MESSAGE value=\"Database works\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Database works\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.sql.SQLException\" package=\"java.sql\" />\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/.idea/workspace.xml	(date 1673334984545)
+@@ -4,9 +4,19 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Database works">
++    <list default="true" id="c534258e-704f-4e6c-8e59-d0d40218dec3" name="Changes" comment="Ui, laid foundation">
++      <change afterPath="$PROJECT_DIR$/src/basic/globals.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controller/SoldierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SoldierController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/DataTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataTests.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Registration.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/basic/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Armor.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/basic/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Person.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/basic/Soldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/basic/Soldier.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,11 +33,6 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
+-    <option name="RECENT_BRANCH_BY_REPOSITORY">
+-      <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
+-      </map>
+-    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+@@ -41,37 +46,33 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sofar/Desktop/Facultate/Sem3/Fortgeschrittene_Programierung/sqljdbc_11.2/enu/mssql-jdbc-11.2.1.jre18.jar&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
++    "Downloaded.Files.Path.Enabled": "false",
++    "Repository.Attach.Annotations": "false",
++    "Repository.Attach.JavaDocs": "false",
++    "Repository.Attach.Sources": "false",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
++    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
++    "create.test.in.the.same.root": "true",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "settings.editor.selected.configurable": "preferences.lookFeel"
+   },
+-  &quot;keyToStringList&quot;: {
+-    &quot;DatabaseDriversLRU&quot;: [
+-      &quot;sqlserver&quot;
++  "keyToStringList": {
++    "DatabaseDriversLRU": [
++      "sqlserver"
+     ]
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CreateTestDialog.Recents.Supers">
+       <recent name="" />
+@@ -92,13 +93,7 @@
+       <workItem from="1668096625842" duration="326000" />
+       <workItem from="1668499617929" duration="4313000" />
+       <workItem from="1668505421399" duration="2843000" />
+-      <workItem from="1669102385762" duration="70000" />
+-      <workItem from="1669102588105" duration="19000" />
+-      <workItem from="1669102828759" duration="529000" />
+-      <workItem from="1670314060568" duration="2714000" />
+-      <workItem from="1671458729204" duration="1235000" />
+-      <workItem from="1671530906838" duration="3839000" />
+-      <workItem from="1671534970523" duration="1512000" />
++      <workItem from="1673331178744" duration="3799000" />
+     </task>
+     <task id="LOCAL-00001" summary="Test">
+       <created>1666618728948</created>
+@@ -198,28 +193,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1668505941797</updated>
+     </task>
+-    <task id="LOCAL-00015" summary="Database added">
+-      <created>1670314279076</created>
+-      <option name="number" value="00015" />
+-      <option name="presentableId" value="LOCAL-00015" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1670314279076</updated>
+-    </task>
+-    <task id="LOCAL-00016" summary="Database added">
+-      <created>1670314508553</created>
+-      <option name="number" value="00016" />
+-      <option name="presentableId" value="LOCAL-00016" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1670314508553</updated>
+-    </task>
+-    <task id="LOCAL-00017" summary="Database works">
+-      <created>1671535655285</created>
+-      <option name="number" value="00017" />
+-      <option name="presentableId" value="LOCAL-00017" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1671535655285</updated>
+-    </task>
+-    <option name="localTasksCounter" value="18" />
++    <option name="localTasksCounter" value="15" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -236,7 +210,7 @@
+                   <entry key="branch">
+                     <value>
+                       <list>
+-                        <option value="database" />
++                        <option value="origin/database" />
+                       </list>
+                     </value>
+                   </entry>
+@@ -254,11 +228,6 @@
+             <list>
+               <RecentGroup>
+                 <option name="FILTER_VALUES">
+-                  <option value="database" />
+-                </option>
+-              </RecentGroup>
+-              <RecentGroup>
+-                <option name="FILTER_VALUES">
+                   <option value="master" />
+                 </option>
+               </RecentGroup>
+@@ -283,18 +252,6 @@
+     <MESSAGE value="UI getting started" />
+     <MESSAGE value="UI only one" />
+     <MESSAGE value="getAll for ItemController" />
+-    <MESSAGE value="Database added" />
+-    <MESSAGE value="Database works" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Database works" />
+-  </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <breakpoint enabled="true" type="java-exception">
+-          <properties class="java.sql.SQLException" package="java.sql" />
+-          <option name="timeStamp" value="1" />
+-        </breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
++    <option name="LAST_COMMIT_MESSAGE" value="getAll for ItemController" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/Registration.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import basic.*;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Objects;\r\n\r\npublic class Registration {\r\n    ArrayList<Soldier> generalSoldierList = new ArrayList<Soldier>();\r\n    public Registration() {\r\n        populateSoldiers();\r\n    }\r\n\r\n    void addSoldier(Soldier newSoldier){\r\n        newSoldier.setRang(Rang.Private);\r\n        generalSoldierList.add(newSoldier);\r\n    }\r\n    void populateSoldiers(){\r\n        generalSoldierList.add(new Soldier(\"Alex\",1,Rang.Private));\r\n        generalSoldierList.add(new Soldier(\"Bob\",2,Rang.Officer));\r\n        generalSoldierList.add(new Soldier(\"Martin\",3,Rang.Private));\r\n        generalSoldierList.add(new Soldier(\"Greg\",4,Rang.General));\r\n    }\r\n\r\n    void deleteSoldier(int id){\r\n        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.id(),id));\r\n    }\r\n    void displaySoldiers(){\r\n        for (Soldier soldier:generalSoldierList){\r\n            System.out.println(\"Name: \"+soldier.getName()+\r\n            \"\\tId: \"+soldier.id()+\"\\tRang: \"+soldier.getRang());\r\n        }\r\n    }\r\n\r\n    void updateSoldier(int id, String newName, Rang newRang){\r\n        for (Soldier soldier:generalSoldierList){\r\n            if(id== soldier.id()){\r\n                soldier.setName(newName);\r\n                soldier.setRang(newRang);\r\n            }\r\n        }\r\n\r\n    }\r\n    /*1 weapon assigned to soldier\r\n    * 1 armor assigned to soldier\r\n    * */\r\n    void assignToSoldier(){\r\n\r\n    }\r\n}\r\n\r\n/*\r\n    Jeder Soldat - hat eine Rustung, Waffe und Rang\r\n                 - ist eine Person\r\n                 - wenn Rang 'Private' ist dann kann auch jeder soldat ein Fahrer fur\r\n                   ein Vehicle sein\r\n    Jede Waffe, Rustung und Auto ist ein Item\r\n    Item ist eine abstrakte Klasse welche zu einem Soldat 'assigned' ist\r\n        - wenn ein Item usable als false hat kann man es nicht zu einen\r\n          Soldat zuordnen\r\n    Ein Battalion enthalt mehrere Soldaten und ein leader\r\n    Einen Vehicle kann mehrere Fahrer haben, ein Soldat kann mehrere Vehicles fahren\r\n    In der Registration wird sich eine Person als Soldat registrieren,\r\n    wird random zu einer Battalion zugeordnet und bekommt Waffe und Rustung.\r\n    Inventory hat eine liste fur Waffe, Rustung und Vehicles, aus dieser wird der Soldat der sich\r\n    registriert eine Waffe und Rustung welche nicht zugeordnet sind.\r\n    Jeder Soldat hat eine Stat-Klasse welche ihre Fahigkeiten verspiegelt.\r\n\r\n\r\n* */
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Registration.java b/src/Registration.java
+--- a/src/Registration.java	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/src/Registration.java	(date 1673333860925)
+@@ -21,18 +21,18 @@
+     }
+ 
+     void deleteSoldier(int id){
+-        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.id(),id));
++        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.getId(),id));
+     }
+     void displaySoldiers(){
+         for (Soldier soldier:generalSoldierList){
+             System.out.println("Name: "+soldier.getName()+
+-            "\tId: "+soldier.id()+"\tRang: "+soldier.getRang());
++            "\tId: "+soldier.getId()+"\tRang: "+soldier.getRang());
+         }
+     }
+ 
+     void updateSoldier(int id, String newName, Rang newRang){
+         for (Soldier soldier:generalSoldierList){
+-            if(id== soldier.id()){
++            if(id== soldier.getId()){
+                 soldier.setName(newName);
+                 soldier.setRang(newRang);
+             }
+Index: src/UI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Controller.ItemController;\r\nimport Controller.SoldierController;\r\nimport Repository.Repository;\r\nimport basic.Item;\r\nimport basic.Soldier;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class UI {\r\n    private SoldierController soldierController;\r\n    private ItemController itemController;\r\n    private Repository<Soldier> soldierRepository;\r\n    private Repository<Item> itemRepository;\r\n\r\n    public UI(Repository<Soldier> soldierRepository, Repository<Item> itemRepository) {\r\n        this.soldierRepository = soldierRepository;\r\n        this.itemRepository = itemRepository;\r\n        this.soldierController = new SoldierController(this.soldierRepository);\r\n        this.itemController = new ItemController(this.itemRepository);\r\n    }\r\n\r\n    public UI() {\r\n        this.soldierRepository = new Repository<Soldier>();\r\n        this.itemRepository = new Repository<Item>();\r\n        this.soldierController = new SoldierController(this.soldierRepository);\r\n        this.itemController = new ItemController(this.itemRepository);\r\n    }\r\n\r\n    private void menu_text() {\r\n        System.out.println();\r\n        System.out.println(\"1. View Troops\");\r\n        System.out.println(\"2. View Inventory\");\r\n        System.out.println(\"3. Exit\");\r\n    }\r\n\r\n    private void soldier_menu_text() {\r\n        System.out.println();\r\n        System.out.println(\"1. add new Soldier\");\r\n        System.out.println(\"2. edit Soldier\");\r\n        System.out.println(\"3. promote Soldier\");\r\n        System.out.println(\"4. view Soldier equipment\");\r\n        System.out.println(\"5. assign Soldier to battalion\");\r\n        System.out.println(\"6. remove Soldier\");\r\n        System.out.println(\"7. Return\");\r\n    }\r\n\r\n    private void items_menu_text() {\r\n        System.out.println();\r\n        System.out.println(\"1. view weapons\");\r\n        System.out.println(\"2. view armor\");\r\n        System.out.println(\"3. view vehicle\");\r\n        System.out.println(\"4. add weapon\");\r\n        System.out.println(\"5. add armor\");\r\n        System.out.println(\"6. add vehicle\");\r\n        System.out.println(\"7. remove item\");\r\n        System.out.println(\"8. edit item\");\r\n        System.out.println(\"9. assign item to soldier\");\r\n        System.out.println(\"10. manage vehicle drivers\");\r\n        System.out.println(\"11. Return\");\r\n    }\r\n\r\n    public void menu() {\r\n        int option, option2;\r\n        boolean t = true, t2 = true;\r\n        Scanner scan = new Scanner(System.in);\r\n        while (t) {\r\n            t = true;\r\n            menu_text();\r\n            option = scan.nextInt();\r\n            switch (option) {\r\n                case 1 -> {\r\n                    t2 = true;\r\n                    soldierController.displaySoldiers();\r\n                    soldier_menu_text();\r\n                    option2 = scan.nextInt();\r\n                    while (t2) {\r\n                        switch (option2) {\r\n                            case 1 -> {\r\n                                //add new soldier\r\n                            }\r\n                            case 2 -> {\r\n                                //edit soldier\r\n                            }\r\n                            case 3 -> {\r\n                                //promote soldier\r\n                            }\r\n                            case 4 -> {\r\n                                //view equipment\r\n                            }\r\n                            case 5 -> {\r\n                                //assign soldier to battalion\r\n                            }\r\n                            case 6 -> {\r\n                                //remove soldier\r\n                            }\r\n                            case 7 -> {\r\n                                //return\r\n                                t2 = false;\r\n                            }\r\n                            default -> {\r\n                                System.out.println(\"Invalid option, try again\");\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n                case 2 -> {\r\n                    t2=true;\r\n                    itemController.display();\r\n                    items_menu_text();\r\n                    option2 = scan.nextInt();\r\n                    while(t2) {\r\n                        switch (option2) {\r\n                            case 1 -> {\r\n                                //view weapons\r\n                            }\r\n                            case 2 -> {\r\n                                //view armor\r\n                            }\r\n                            case 3 -> {\r\n                                //view vehicles\r\n                            }\r\n                            case 4 -> {\r\n                                //add weapon\r\n                            }\r\n                            case 5 -> {\r\n                                //add armor\r\n                            }\r\n                            case 6 -> {\r\n                                //add vehicle\r\n                            }\r\n                            case 7 -> {\r\n                                //remove item\r\n                            }\r\n                            case 8 -> {\r\n                                //edit item\r\n                            }\r\n                            case 9 -> {\r\n                                //assign item\r\n                            }\r\n                            case 10 -> {\r\n                                //manage vehicle drivers\r\n                            }\r\n                            case 11 -> {\r\n                                t2=false;\r\n                            }\r\n                            default -> {\r\n                                System.out.println(\"Invalid option, try again\");\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n                case 3 -> {\r\n                    t = false;\r\n                }\r\n                default -> {\r\n                    System.out.println(\"Invalid option, try again\");\r\n                }\r\n            }\r\n        }\r\n        scan.close();\r\n    }\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/UI.java b/src/UI.java
+--- a/src/UI.java	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/src/UI.java	(date 1673334773326)
+@@ -2,6 +2,8 @@
+ import Controller.SoldierController;
+ import Repository.Repository;
+ import basic.Item;
++import basic.Rang;
++import basic.globals;
+ import basic.Soldier;
+ 
+ import java.util.Scanner;
+@@ -77,12 +79,19 @@
+                         switch (option2) {
+                             case 1 -> {
+                                 //add new soldier
++                                System.out.print("Name: ");
++                                String name=scan.nextLine();
++                                Soldier s=new Soldier(name,globals.getSolID(), Rang.Private);
++                                this.soldierController.addSoldier(s);
+                             }
+                             case 2 -> {
+                                 //edit soldier
+                             }
+                             case 3 -> {
+                                 //promote soldier
++                                System.out.print("Choose soldier id: ");
++                                int id=scan.nextInt();
++                                this.soldierController.findById(id).promote();
+                             }
+                             case 4 -> {
+                                 //view equipment
+@@ -92,6 +101,11 @@
+                             }
+                             case 6 -> {
+                                 //remove soldier
++                                System.out.print("Choose soldier to remove: ");
++                                int id= scan.nextInt();
++                                if(this.soldierController.deleteSoldier(id))
++                                    System.out.println("Soldier removed");
++                                System.out.println("Soldier not found");
+                             }
+                             case 7 -> {
+                                 //return
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DataSourceManagerImpl\" format=\"xml\" multifile-model=\"true\">\r\n    <data-source source=\"LOCAL\" name=\"@DESKTOP-GLDFCK4\" uuid=\"6f986386-8093-4be3-9441-fe3a177237ab\">\r\n      <driver-ref>sqlserver.ms</driver-ref>\r\n      <synchronize>true</synchronize>\r\n      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>\r\n      <jdbc-url>jdbc:sqlserver://DESKTOP-GLDFCK4\\NEWMSSQL</jdbc-url>\r\n      <working-dir>$ProjectFileDir$</working-dir>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+--- a/.idea/dataSources.xml	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/.idea/dataSources.xml	(date 1673333973907)
+@@ -1,11 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+-    <data-source source="LOCAL" name="@DESKTOP-GLDFCK4" uuid="6f986386-8093-4be3-9441-fe3a177237ab">
++    <data-source source="LOCAL" name="JDB1@localhost" uuid="a856d4e1-76cb-42af-9efd-907e58aa3b25">
+       <driver-ref>sqlserver.ms</driver-ref>
+       <synchronize>true</synchronize>
+       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+-      <jdbc-url>jdbc:sqlserver://DESKTOP-GLDFCK4\NEWMSSQL</jdbc-url>
++      <jdbc-url>jdbc:sqlserver://localhost\SQLEXPRESS:1433;database=JDB1</jdbc-url>
+       <working-dir>$ProjectFileDir$</working-dir>
+     </data-source>
+   </component>
+Index: src/basic/globals.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/basic/globals.java b/src/basic/globals.java
+new file mode 100644
+--- /dev/null	(date 1673333860872)
++++ b/src/basic/globals.java	(date 1673333860872)
+@@ -0,0 +1,27 @@
++package basic;
++
++public class globals {
++    private int SolID;
++    private int ItemID;
++
++    public int getSolID() {
++        return SolID;
++    }
++
++    public void setSolID(int solID) {
++        SolID = solID;
++    }
++
++    public int getItemID() {
++        return ItemID++;
++    }
++
++    public void setItemID(int itemID) {
++        ItemID = itemID;
++    }
++
++    public globals() {
++        SolID = 0;
++        ItemID = 0;
++    }
++}
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Controller.ItemController;\r\nimport Controller.SoldierController;\r\nimport Repository.Repository;\r\nimport basic.*;\r\n\r\nimport java.io.File;\r\nimport java.io.FileNotFoundException;\r\nimport java.io.IOException;\r\nimport java.util.ArrayList;\r\nimport java.util.Scanner;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        Repository<Soldier> soldierRepository = populateSoldierRepo();\r\n        Repository<Item> itemRepository = populateItemsRepo();\r\n        itemRepository.display();\r\n        soldierRepository.display();\r\n    }\r\n//\r\n\r\n    public static Repository<Soldier> populateSoldierRepo() {\r\n        Repository<Soldier> soldierRepository = new Repository<Soldier>();\r\n        SoldierController soldierController = new SoldierController(soldierRepository);\r\n        Soldier newSoldier = new Soldier(\"Alex\", 1, Rang.Private);\r\n        soldierController.addSoldier(newSoldier);\r\n        newSoldier = new Soldier(\"Bob\", 2, Rang.Officer);\r\n        soldierController.addSoldier(newSoldier);\r\n        newSoldier = new Soldier(\"Martin\", 3, Rang.Private);\r\n        soldierController.addSoldier(newSoldier);\r\n        newSoldier = new Soldier(\"Greg\", 4, Rang.General);\r\n        soldierController.addSoldier(newSoldier);\r\n        return soldierRepository;\r\n    }\r\n\r\n    public static Repository<Item> populateItemsRepo() {\r\n       Repository<Item> itemRepository = new Repository<Item>();\r\n       ItemController itemController = new ItemController(itemRepository);\r\n\r\n       Weapon weapon = new Weapon(\"AK-74\", (float) 7.62, 1);\r\n       Armor armor = new Armor(\"Heavy\", \"Heavy\", 2);\r\n       Vehicle vehicle = new Vehicle(\"Humvee\", 3, new ArrayList<Soldier>());\r\n\r\n       itemController.add(weapon);\r\n       itemController.add(armor);\r\n       itemController.add(vehicle);\r\n       return itemController.getAll();\r\n    }\r\n\r\n    public static void load_basic_data(String filepath) throws FileNotFoundException {\r\n        File memory = new File(filepath);\r\n        if (memory.canRead()) {\r\n            System.out.println(memory);\r\n            Scanner memoscan = new Scanner(memory);\r\n            System.out.println(memoscan.nextLine());\r\n        }\r\n    }\r\n    //public static void main(String[] args) throws FileNotFoundException {/*\r\n//        Registration r = new Registration();\r\n//        r.displaySoldiers();\r\n//\r\n//        r.generalSoldierList.add(new Soldier(\"Alex\",1,Rang.Private));\r\n//        r.generalSoldierList.add(new Soldier(\"Bob\",2,Rang.Officer));\r\n//        r.generalSoldierList.add(new Soldier(\"Martin\",3,Rang.Private));\r\n//        r.generalSoldierList.add(new Soldier(\"Greg\",4,Rang.General));\r\n//\r\n//        Scanner in = new Scanner(System.in);\r\n//        System.out.println(\"Delete id:\");\r\n//        int id = in.nextInt();\r\n//        r.deleteSoldier(id);\r\n//        r.displaySoldiers();*/\r\n//        ItemController itemController = new ItemController();\r\n//        Weapon weapon = new Weapon(\"AK-74\", (float) 7.62,1);\r\n//        Armor armor = new Armor(\"Heavy\",\"Heavy\",2);\r\n//        Vehicle vehicle = new Vehicle(\"Humvee\",3,new ArrayList<Soldier>());\r\n//\r\n//        itemController.add(weapon);\r\n//        itemController.add(armor);\r\n//        itemController.add(vehicle);\r\n//        System.out.println(\"1.Update Weapon\\n2.Update Armor\\n3.Update Vehicle\");\r\n//        Scanner in = new Scanner(System.in);\r\n//        int choice = in.nextInt();\r\n//        if(choice == 1){\r\n//            System.out.println(\"Enter id: \");\r\n//            int id = in.nextInt();\r\n//            System.out.println(\"New name: \");\r\n//            String name = in.next();\r\n//            System.out.println(\"New calibre: \");\r\n//            double calibre = in.nextDouble();\r\n//            itemController.updateWeapon(name,calibre,id);\r\n//            itemController.display();\r\n//        }\r\n//        load_basic_data(\"data.txt\");\r\n//    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/src/Main.java	(date 1673334773335)
+@@ -2,7 +2,7 @@
+ import Controller.SoldierController;
+ import Repository.Repository;
+ import basic.*;
+-
++import basic.globals;
+ import java.io.File;
+ import java.io.FileNotFoundException;
+ import java.io.IOException;
+@@ -11,6 +11,7 @@
+ 
+ public class Main {
+     public static void main(String[] args) {
++        globals globals=new globals();
+         Repository<Soldier> soldierRepository = populateSoldierRepo();
+         Repository<Item> itemRepository = populateItemsRepo();
+         itemRepository.display();
+Index: src/basic/Soldier.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package basic;\r\n\r\nimport java.util.Map;\r\nimport java.util.ArrayList;\r\n\r\npublic class Soldier extends Person{\r\n    private Rang rang;\r\n    private Map.Entry<Weapon,Armor> equipment;\r\n    private ArrayList<Vehicle> vehicleList;\r\n\r\n    public ArrayList<Vehicle> getVehicleList() {\r\n        return vehicleList;\r\n    }\r\n\r\n    public void setVehicleList(ArrayList<Vehicle> vehicleList) {\r\n        this.vehicleList = vehicleList;\r\n    }\r\n\r\n    public Soldier(String name, int id, Rang rang) {\r\n        super(name, id);\r\n        this.rang=rang;\r\n    }\r\n\r\n    public Rang getRang() {\r\n        return rang;\r\n    }\r\n\r\n    public void setRang(Rang rang) {\r\n        this.rang = rang;\r\n    }\r\n    @Override\r\n    public String toString(){\r\n        return this.getName();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/basic/Soldier.java b/src/basic/Soldier.java
+--- a/src/basic/Soldier.java	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/src/basic/Soldier.java	(date 1673334658823)
+@@ -8,6 +8,11 @@
+     private Map.Entry<Weapon,Armor> equipment;
+     private ArrayList<Vehicle> vehicleList;
+ 
++    public Soldier(int id) {
++        super(id);
++        this.setId(id);
++    }
++
+     public ArrayList<Vehicle> getVehicleList() {
+         return vehicleList;
+     }
+@@ -16,11 +21,28 @@
+         this.vehicleList = vehicleList;
+     }
+ 
++    public Soldier(String name, int id) {
++        super(name, id);
++        this.setName("tbd");
++    }
++
+     public Soldier(String name, int id, Rang rang) {
+         super(name, id);
+         this.rang=rang;
+     }
+ 
++    public void promote(){
++        if(this.getRang()==Rang.Private)
++            this.setRang(Rang.Officer);
++        if(this.getRang()==Rang.Officer)
++            this.setRang(Rang.General);
++    }
++    public void demote(){
++        if(this.getRang()==Rang.General)
++            this.setRang(Rang.Officer);
++        if(this.getRang()==Rang.Officer)
++            this.setRang(Rang.Private);
++    }
+     public Rang getRang() {
+         return rang;
+     }
+@@ -32,4 +54,8 @@
+     public String toString(){
+         return this.getName();
+     }
++
++    public boolean getAvailableEq(){
++        return false;
++    }
+ }
+Index: src/basic/Armor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package basic;\r\n\r\npublic class Armor extends Item{\r\n    @Override\r\n    public void assignedTo(Soldier soldier) {\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean usable() {\r\n        return false;\r\n    }\r\n\r\n    public String getArmorType() {\r\n        return armorType;\r\n    }\r\n\r\n    public void setArmorType(String armorType) {\r\n        this.armorType = armorType;\r\n    }\r\n\r\n    @Override\r\n    public int getID() {\r\n        return armorID;\r\n    }\r\n\r\n    public void setArmorID(int armorID) {\r\n        this.armorID = armorID;\r\n    }\r\n\r\n    public String getArmorLightness() {\r\n        return armorLightness;\r\n    }\r\n\r\n    public void setArmorLightness(String armorLightness) {\r\n        this.armorLightness = armorLightness;\r\n    }\r\n\r\n    public Armor(String armorType, String armorLightness, int armorID) {\r\n        this.armorType = armorType;\r\n        this.armorID = armorID;\r\n        this.armorLightness = armorLightness;\r\n    }\r\n\r\n    private String armorType;\r\n    private int armorID;\r\n    private String armorLightness;\r\n\r\n    public Armor() {\r\n        this.armorType=\"TBD\";\r\n    }\r\n\r\n    @Override\r\n    public String toString(){\r\n        return this.getArmorType();\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/basic/Armor.java b/src/basic/Armor.java
+--- a/src/basic/Armor.java	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/src/basic/Armor.java	(date 1673333860880)
+@@ -5,7 +5,6 @@
+     public void assignedTo(Soldier soldier) {
+ 
+     }
+-
+     @Override
+     public boolean usable() {
+         return false;
+Index: src/Controller/SoldierController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Controller;\r\n\r\nimport Repository.Repository;\r\nimport basic.Rang;\r\nimport basic.Soldier;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class SoldierController {\r\n    private Repository<Soldier> generalSoldierList;\r\n\r\n    public SoldierController() {\r\n        this.generalSoldierList=new Repository<Soldier>(new ArrayList<Soldier>());\r\n    }\r\n\r\n    public SoldierController(Repository<Soldier> generalSoldierList){\r\n        this.generalSoldierList = generalSoldierList;\r\n    }\r\n\r\n    public Soldier findById(int id) {\r\n        for (Soldier soldier : generalSoldierList.getContent()) {\r\n            if (soldier.id() == id) {\r\n                return soldier;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public void addSoldier(Soldier newSoldier) {\r\n        newSoldier.setRang(Rang.Private);\r\n        generalSoldierList.add(newSoldier);\r\n    }\r\n\r\n    public boolean deleteSoldier(int id) {\r\n//        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.id(),id));\r\n        for (Soldier soldier : generalSoldierList.getContent()) {\r\n            if (id == soldier.id()) {\r\n                generalSoldierList.remove(soldier);\r\n                return true;\r\n            }\r\n        }\r\n        return false;\r\n    }\r\n\r\n    public boolean updateSoldier(int id, String newName, Rang newRang) {\r\n        for (Soldier soldier : generalSoldierList.getContent()) {\r\n            if (id == soldier.id()) {\r\n                soldier.setName(newName);\r\n                soldier.setRang(newRang);\r\n                return true;\r\n            }\r\n        }\r\n        return false;\r\n    }\r\n\r\n    public void displaySoldiers() {\r\n        this.generalSoldierList.display();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Controller/SoldierController.java b/src/Controller/SoldierController.java
+--- a/src/Controller/SoldierController.java	(revision e6c007c5c143f2dfe95fda1df66bf1c3f11e57f3)
++++ b/src/Controller/SoldierController.java	(date 1673333860935)
+@@ -19,7 +19,7 @@
+ 
+     public Soldier findById(int id) {
+         for (Soldier soldier : generalSoldierList.getContent()) {
+-            if (soldier.id() == id) {
++            if (soldier.getId() == id) {
+                 return soldier;
+             }
+         }
+@@ -34,7 +34,7 @@
+     public boolean deleteSoldier(int id) {
+ //        generalSoldierList.removeIf(soldier -> Objects.equals(soldier.id(),id));
+         for (Soldier soldier : generalSoldierList.getContent()) {
+-            if (id == soldier.id()) {
++            if (id == soldier.getId()) {
+                 generalSoldierList.remove(soldier);
+                 return true;
+             }
+@@ -44,7 +44,7 @@
+ 
+     public boolean updateSoldier(int id, String newName, Rang newRang) {
+         for (Soldier soldier : generalSoldierList.getContent()) {
+-            if (id == soldier.id()) {
++            if (id == soldier.getId()) {
+                 soldier.setName(newName);
+                 soldier.setRang(newRang);
+                 return true;
